@@ -1,0 +1,7 @@
+set(navx_micro_SETUP_PY_SETUP_MODULE "distutils.core")
+set(navx_micro_SETUP_PY_VERSION "0.0.1")
+set(navx_micro_SETUP_PY_SCRIPTS "")
+set(navx_micro_SETUP_PY_PACKAGES "navx_micro")
+set(navx_micro_SETUP_PY_PACKAGE_DIRS "src/navx_micro")
+set(navx_micro_SETUP_PY_MODULES "")
+set(navx_micro_SETUP_PY_MODULE_DIRS "")

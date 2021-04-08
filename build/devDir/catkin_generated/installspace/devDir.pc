@@ -1,0 +1,8 @@
+prefix=/home/thechild/catkin_ws/install
+
+Name: devDir
+Description: Description of devDir
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
