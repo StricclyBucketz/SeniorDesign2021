@@ -50,16 +50,38 @@ def calculateServoSpeed(targets):
   # return cieling(delta/greatestDelta)
   return deltas
 
+def readInPositions():
+  #arr = numpy.zeros([12])
+  # servoInfos = array of length 12 (or 16/18) containing servoInfo objects read in from ROS
+  #   servoInfo has fields: ID (unique ID for servo ranging from 1-12), Position (position of servo ranging from 0-1023) and potentially others.
+  rospy.init_node('motorSub', anonymous=True)
+  posSub = rospy.Subscriber("dynamixel_workbench/dynamixel_state", msg.DynamixelStateList, callback)
+
+  arr = numpy.zeros(len(motorSub.dynamixel_state))
+  for dynamixel_state in motorSub:
+    arr[motorSub.dynamixel_state.id - 1] = motorSub.dynamixel_state.present_position
+  return arr
+
+def servoInfoIndexTest():
+  # servoInfos read in via ROS
+  rospy.init_node('motorSub', anonymous=True)
+  posSub = rospy.Subscriber("dynamixel_workbench/dynamixel_state", msg.DynamixelStateList, callback)
+  for dynamixel_state in motorSub:
+    print("Servo {} is at position: {}".format(motorSub.dynamixel_state.id, motorSub.dynamixel_state.present_position))
+
 # Takes a numpy.array of size 12.  Spins until position read in from servos are all within tolerance
 # TODO replace servo#Pos with read ins from servos
-def spinWhileMoving(targets):
+def spinWhileMoving(targets, arr):
 	#call motor subscriber
   rospy.init_node('motorSub', anonymous=True)
   posSub = rospy.Subscriber("dynamixel_workbench/dynamixel_state", msg.DynamixelStateList, callback)
+  arr = readInPositions();
   #rospy.spin()
   #TODO find the indeces of the motors in DynamixelStateList and populate below
   #Christian will do this when we can test
-  while(abs(servo1Pos - targets[0]) > TOLERANCE or abs(servo2Pos - targets[1]) > TOLERANCE or abs(servo3Pos - targets[2]) > TOLERANCE or abs(servo4Pos - targets[3]) > TOLERANCE or abs(servo5Pos - targets[4]) > TOLERANCE or abs(servo6Pos - targets[5]) > TOLERANCE or abs(servo7Pos - targets[6]) > TOLERANCE or abs(servo8Pos - targets[7]) > TOLERANCE or abs(servo9Pos - targets[8]) > TOLERANCE or abs(servo10Pos - targets[9]) > TOLERANCE or abs(servo11Pos - targets[10]) > TOLERANCE or abs(servo12Pos - targets[11]) > TOLERANCE):
+  #while(abs(arr[0] - targets[0]) > TOLERANCE or abs(arr[1] - targets[1]) > TOLERANCE or abs(arr[2] - targets[2]) > TOLERANCE or abs(arr[3] - targets[3]) > TOLERANCE or abs(arr[4] - targets[4]) > TOLERANCE or abs(arr[5] - targets[5]) > TOLERANCE or abs(arr[6] - targets[6]) > TOLERANCE or abs(arr[7] - targets[7]) > TOLERANCE or abs(arr[8] - targets[8]) > TOLERANCE or abs(arr[9] - targets[9]) > TOLERANCE or abs(arr[10] - targets[10]) > TOLERANCE or abs(arr[11] - targets[11]) > TOLERANCE):
+    #pass
+  while(abs(arr[0] - targets[0]) > TOLERANCE or abs(arr[1] - targets[1]) > TOLERANCE or abs(arr[2] - targets[2]) > TOLERANCE or abs(arr[3] - targets[3]) > TOLERANCE or abs(arr[4] - targets[4]) > TOLERANCE or abs(arr[5] - targets[5]) > TOLERANCE or abs(arr[6] - targets[6]) > TOLERANCE or abs(arr[7] - targets[7]) > TOLERANCE or abs(arr[8] - targets[8]) > TOLERANCE or abs(arr[9] - targets[9]) > TOLERANCE or abs(arr[10] - targets[10]) > TOLERANCE or abs(arr[11] - targets[11]) > TOLERANCE):
     pass
 
 def stepOff():
@@ -306,7 +328,7 @@ def closeStepRForward():
   speed_pos_control(10, speeds[9], STAND[9])
   speed_pos_control(11, speeds[10], STAND[10])
   speed_pos_control(12, speeds[11], STAND[11])
-  spinWhileMoving(STAND)  
+  spinWhileMoving(STAND)
 
 def walkLogic(stepsToTake):
   stepsTaken = 0
