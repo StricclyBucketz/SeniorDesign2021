@@ -40,5 +40,23 @@ left_hip:
 left_waist:
   ID: 12
   Return_Delay_Time: 0
+left_shoulder:
+  ID: 13
+  Return_Delay_Time: 0
+left_elbow:
+  ID: 14
+  Return_Delay_Time: 0
+left_wrist:
+  ID: 15
+  Return_Delay_Time: 0
+right_shoulder:
+  ID: 16
+  Return_Delay_Time: 0
+right_elbow:
+  ID: 17
+  Return_Delay_Time: 0
+right_wrist:
+  ID: 18
+  Return_Delay_Time: 0
 
 
