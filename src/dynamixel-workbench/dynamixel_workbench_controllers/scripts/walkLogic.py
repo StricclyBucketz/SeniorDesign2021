@@ -20,7 +20,7 @@ from sensor_msgs.msg import Imu
 from functions import speed_pos_control
 
 TOLERANCE = 5 # %tolerance = TOLERANCE / 1023 (In this case ~0.3%)
-BASE_MOTOR_SPEED = 512 # Sets the speed for the servo moving the farthest in a state change.
+BASE_MOTOR_SPEED = 128 # Sets the speed for the servo moving the farthest in a state change.
 STAND = np.array([512,512,512,512,512,512,512,512,512,512,512,512])
 RIGHT_FOOT_FORWARD = np.array([512,512,720,750,512,512,512,512,512,512,512,512])
 RIGHT_FOOT_DOWN = np.array([512,512,720,750,512,512,512,405,455,565,512,512])
@@ -34,11 +34,11 @@ LEFT_LEG_STRAIGHT = np.array([512,620,570,464,512,512,512,512,512,512,512,512])
 targets = np.zeros(18)
 
 class speed_calc:
-  
+
   def __init__(self):
     self.deltas = np.zeros(18)
     self.sub = rospy.Subscriber("dynamixel_workbench/dynamixel_state", msg.DynamixelStateList, self.callback)
-    
+
   def callback(self, data):
       # loop through each servo, recording (in array) difference between each current position and target position (delta)
     # find greatestDelta
@@ -46,11 +46,11 @@ class speed_calc:
     array = np.zeros(18)
     for servoInfo in data.dynamixel_state:
       array[servoInfo.id-1] = servoInfo.present_position
-      
+
     maxDelta = -1024
     i = 0
     for delta in deltas:
-      delta = abs(delta - array[i]) 
+      delta = abs(delta - array[i])
       if delta > maxDelta:
         maxDelta = delta
       i = i + 1
@@ -64,20 +64,20 @@ class ForwardFoot(enum.Enum):
   left = 2
 
 def motor_callback(motorSub):
-  
+
   rate = rospy.Rate(10)
   moving = True
   while moving:
     rospy.loginfo("%s" % (motorSub.dynamixel_state[0].id))
     for servoInfo in motorSub.dynamixel_state:
       moving = moving and abs(servoInfo.present_position - targets[servoInfo.id-1]) > TOLERANCE
-      
+
 
 def calculateServoSpeed():
-  
+
   deltas = speed_calc()
   return deltas.deltas
-  
+
 
 def servoInfoIndexTest():
   # servoInfos read in via ROS
@@ -117,7 +117,7 @@ def stepOff():
   print(117)
   spinWhileMoving()
   print(119)
-  
+
   targets = RIGHT_FOOT_DOWN
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], RIGHT_FOOT_DOWN[0])
@@ -133,7 +133,7 @@ def stepOff():
   speed_pos_control(11, speeds[10], RIGHT_FOOT_DOWN[10])
   speed_pos_control(12, speeds[11], RIGHT_FOOT_DOWN[11])
   spinWhileMoving()
-  
+
   targets = RIGHT_FOOT_TORSO
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], RIGHT_FOOT_TORSO[0])
@@ -174,7 +174,7 @@ def leftStep():
   speed_pos_control(11, speeds[10], RIGHT_LEG_STRAIGHT[10])
   speed_pos_control(12, speeds[11], RIGHT_LEG_STRAIGHT[11])
   spinWhileMoving()
-  
+
   targets = LEFT_FOOT_FORWARD
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], LEFT_FOOT_FORWARD[0])
@@ -190,7 +190,7 @@ def leftStep():
   speed_pos_control(11, speeds[10], LEFT_FOOT_FORWARD[10])
   speed_pos_control(12, speeds[11], LEFT_FOOT_FORWARD[11])
   spinWhileMoving()
-  
+
   targets = LEFT_FOOT_DOWN
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], LEFT_FOOT_DOWN[0])
@@ -206,7 +206,7 @@ def leftStep():
   speed_pos_control(11, speeds[10], LEFT_FOOT_DOWN[10])
   speed_pos_control(12, speeds[11], LEFT_FOOT_DOWN[11])
   spinWhileMoving()
-  
+
   targets = LEFT_FOOT_TORSO
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], LEFT_FOOT_TORSO[0])
@@ -248,7 +248,7 @@ def rightStep():
   speed_pos_control(11, speeds[10], LEFT_LEG_STRAIGHT[10])
   speed_pos_control(12, speeds[11], LEFT_LEG_STRAIGHT[11])
   spinWhileMoving()
-  
+
   targets = RIGHT_FOOT_FORWARD
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], RIGHT_FOOT_FORWARD[0])
@@ -264,7 +264,7 @@ def rightStep():
   speed_pos_control(11, speeds[10], RIGHT_FOOT_FORWARD[10])
   speed_pos_control(12, speeds[11], RIGHT_FOOT_FORWARD[11])
   spinWhileMoving()
-  
+
   targets = RIGHT_FOOT_DOWN
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], RIGHT_FOOT_DOWN[0])
@@ -280,7 +280,7 @@ def rightStep():
   speed_pos_control(11, speeds[10], RIGHT_FOOT_DOWN[10])
   speed_pos_control(12, speeds[11], RIGHT_FOOT_DOWN[11])
   spinWhileMoving()
-  
+
   targets = RIGHT_FOOT_TORSO
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], RIGHT_FOOT_TORSO[0])
@@ -322,7 +322,7 @@ def closeStepLForward():
   speed_pos_control(11, speeds[10], LEFT_LEG_STRAIGHT[10])
   speed_pos_control(12, speeds[11], LEFT_LEG_STRAIGHT[11])
   spinWhileMoving()
-  
+
   targets = STAND
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], STAND[0])
@@ -354,7 +354,7 @@ def closeStepRForward():
   speed_pos_control(10, speeds[9], RIGHT_LEG_STRAIGHT[9])
   speed_pos_control(11, speeds[10], RIGHT_LEG_STRAIGHT[10])
   speed_pos_control(12, speeds[11], RIGHT_LEG_STRAIGHT[11])
-  
+
   targets = STAND
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], STAND[0])
