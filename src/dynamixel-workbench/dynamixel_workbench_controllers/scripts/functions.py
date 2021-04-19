@@ -17,7 +17,7 @@ from sensor_msgs.msg import Imu
 def speed_pos_control(ID, speed, position):
     rospy.wait_for_service('/dynamixel_workbench/dynamixel_command')
     try:
-    	Command2 = rospy.ServiceProxy('/dynamixel_workbench/dynamixel_command', DynamixelCommand())
+        Command2 = rospy.ServiceProxy('/dynamixel_workbench/dynamixel_command', DynamixelCommand())
         Command2 = ('', ID, 'Moving_Speed', speed)
         Command = rospy.ServiceProxy('/dynamixel_workbench/dynamixel_command', DynamixelCommand())
         Command('', ID, 'Goal_Position', position)
