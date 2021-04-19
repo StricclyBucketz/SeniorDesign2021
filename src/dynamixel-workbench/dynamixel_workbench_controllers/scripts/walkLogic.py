@@ -119,7 +119,7 @@ def stepOff():
   # speed_pos_control(10, speeds[9], RIGHT_FOOT_FORWARD[9])
   # speed_pos_control(11, speeds[10], RIGHT_FOOT_FORWARD[10])
   # speed_pos_control(12, speeds[11], RIGHT_FOOT_FORWARD[11])
-  spinWhileMoving()
+  #spinWhileMoving()
 
   #rospy.loginfo("RIGHT_FOOT_DOWN")
   targets = RIGHT_FOOT_DOWN
@@ -139,7 +139,7 @@ def stepOff():
   position_control(10, RIGHT_FOOT_DOWN[9])
   # speed_pos_control(11, speeds[10], RIGHT_FOOT_DOWN[10])
   # speed_pos_control(12, speeds[11], RIGHT_FOOT_DOWN[11])
-  spinWhileMoving()
+  #spinWhileMoving()
 
   #rospy.loginfo("RIGHT_FOOT_TORSO")
   # targets = RIGHT_FOOT_TORSO
@@ -185,7 +185,7 @@ def leftStep():
   # speed_pos_control(10, speeds[9], RIGHT_LEG_STRAIGHT[9])
   # speed_pos_control(11, speeds[10], RIGHT_LEG_STRAIGHT[10])
   # speed_pos_control(12, speeds[11], RIGHT_LEG_STRAIGHT[11])
-  spinWhileMoving()
+  #spinWhileMoving()
 
   #rospy.loginfo("LEFT_FOOT_FORWARD")
   targets = LEFT_FOOT_FORWARD
@@ -205,7 +205,7 @@ def leftStep():
   position_control(10, LEFT_FOOT_FORWARD[9])
   position_control(11, LEFT_FOOT_FORWARD[10])
   # speed_pos_control(12, speeds[11], LEFT_FOOT_FORWARD[11])
-  spinWhileMoving()
+  #spinWhileMoving()
 
   #rospy.loginfo("LEFT_FOOT_DOWN")
   targets = LEFT_FOOT_DOWN
@@ -225,7 +225,7 @@ def leftStep():
   # speed_pos_control(10, speeds[9], LEFT_FOOT_DOWN[9])
   # speed_pos_control(11, speeds[10], LEFT_FOOT_DOWN[10])
   # speed_pos_control(12, speeds[11], LEFT_FOOT_DOWN[11])
-  spinWhileMoving()
+  #spinWhileMoving()
 
   #rospy.loginfo("LEFT_FOOT_TORSO")
   # targets = LEFT_FOOT_TORSO
@@ -272,7 +272,7 @@ def rightStep():
   position_control(10, LEFT_LEG_STRAIGHT[9])
   # speed_pos_control(11, speeds[10], LEFT_LEG_STRAIGHT[10])
   # speed_pos_control(12, speeds[11], LEFT_LEG_STRAIGHT[11])
-  spinWhileMoving()
+  #spinWhileMoving()
 
 #  rospy.loginfo("RIGHT_FOOT_FORWARD")
   targets = RIGHT_FOOT_FORWARD
@@ -292,7 +292,7 @@ def rightStep():
   # speed_pos_control(10, speeds[9], RIGHT_FOOT_FORWARD[9])
   # speed_pos_control(11, speeds[10], RIGHT_FOOT_FORWARD[10])
   # speed_pos_control(12, speeds[11], RIGHT_FOOT_FORWARD[11])
-  spinWhileMoving()
+  #spinWhileMoving()
 
 #  rospy.loginfo("RIGHT_FOOT_DOWN")
   targets = RIGHT_FOOT_DOWN
@@ -312,7 +312,7 @@ def rightStep():
   position_control(10, RIGHT_FOOT_DOWN[9])
   # speed_pos_control(11, speeds[10], RIGHT_FOOT_DOWN[10])
   # speed_pos_control(12, speeds[11], RIGHT_FOOT_DOWN[11])
-  spinWhileMoving()
+  #spinWhileMoving()
 
 #  rospy.loginfo("RIGHT_FOOT_TORSO")
   # targets = RIGHT_FOOT_TORSO
@@ -359,7 +359,7 @@ def closeStepLForward():
   position_control(10, LEFT_LEG_STRAIGHT[9])
   # speed_pos_control(11, speeds[10], LEFT_LEG_STRAIGHT[10])
   # speed_pos_control(12, speeds[11], LEFT_LEG_STRAIGHT[11])
-  spinWhileMoving()
+  #spinWhileMoving()
 
 #  rospy.loginfo("STAND")
   targets = STAND
@@ -379,7 +379,7 @@ def closeStepLForward():
   # speed_pos_control(10, speeds[9], STAND[9])
   # speed_pos_control(11, speeds[10], STAND[10])
   # speed_pos_control(12, speeds[11], STAND[11])
-  spinWhileMoving()
+  #spinWhileMoving()
 
 def closeStepRForward():
 #  rospy.loginfo("Close Step Right Forward")
@@ -419,7 +419,7 @@ def closeStepRForward():
   position_control(10, STAND[9])
   # speed_pos_control(11, speeds[10], STAND[10])
   # speed_pos_control(12, speeds[11], STAND[11])
-  spinWhileMoving()
+  #spinWhileMoving()
 
 def walkLogic(stepsToTake):
   closeStepLForward()
