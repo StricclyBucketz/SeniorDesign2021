@@ -170,6 +170,78 @@ def stepOff():
   #Then implement a spin function like you were using, could make the callback
   #function I have blank for do that, but we would need separate for the
   #motors and the IMU
+
+def stepOffL():
+  # TODO Also determine if we can get away with only calling the motors that need to move for each step instead of all of them
+  # TODO test and see if we need to implement time.sleep() in between certain lines
+  #rospy.loginfo("Step Off: ")
+  #rospy.loginfo("RIGHT_FOOT_FORWARD")
+  targets = LEFT_FOOT_FORWARD
+  # speeds = calculateServoSpeed()
+  #speed_pos_control(1, speeds[0], RIGHT_FOOT_FORWARD[0])
+  #speed_pos_control(2, speeds[1], RIGHT_FOOT_FORWARD[1])
+  speed_control(9, math.ceil(0.874*BASE_MOTOR_SPEED))
+  speed_control(10, BASE_MOTOR_SPEED)
+  position_control(9, LEFT_FOOT_FORWARD[8])
+  position_control(10, LEFT_FOOT_FORWARD[9])
+  time.sleep(DELAY)
+  #speed_pos_control(5, speeds[4], RIGHT_FOOT_FORWARD[4])
+  #speed_pos_control(6, speeds[5], RIGHT_FOOT_FORWARD[5])
+  #speed_pos_control(7, speeds[6], RIGHT_FOOT_FORWARD[6])
+  # speed_pos_control(8, speeds[7], RIGHT_FOOT_FORWARD[7])
+  # speed_pos_control(9, speeds[8], RIGHT_FOOT_FORWARD[8])
+  # speed_pos_control(10, speeds[9], RIGHT_FOOT_FORWARD[9])
+  # speed_pos_control(11, speeds[10], RIGHT_FOOT_FORWARD[10])
+  # speed_pos_control(12, speeds[11], RIGHT_FOOT_FORWARD[11])
+  #spinWhileMoving()
+
+  #rospy.loginfo("RIGHT_FOOT_DOWN")
+  targets = LEFT_FOOT_DOWN
+  # speeds = calculateServoSpeed()
+  # speed_pos_control(1, speeds[0], RIGHT_FOOT_DOWN[0])
+  # speed_pos_control(2, speeds[1], RIGHT_FOOT_DOWN[1])
+  # speed_pos_control(3, speeds[2], RIGHT_FOOT_DOWN[2])
+  # speed_pos_control(4, speeds[3], RIGHT_FOOT_DOWN[3])
+  # speed_pos_control(5, speeds[4], RIGHT_FOOT_DOWN[4])
+  # speed_pos_control(6, speeds[5], RIGHT_FOOT_DOWN[5])
+  # speed_pos_control(7, speeds[6], RIGHT_FOOT_DOWN[6])
+  speed_control(2, BASE_MOTOR_SPEED)
+  speed_control(3, math.ceil(0.533*BASE_MOTOR_SPEED))
+  speed_control(4, math.ceil(0.495*BASE_MOTOR_SPEED))
+  position_control(2, LEFT_FOOT_DOWN[1])
+  position_control(3, LEFT_FOOT_DOWN[2])
+  position_control(4, LEFT_FOOT_DOWN[3])
+  time.sleep(DELAY)
+  # speed_pos_control(11, speeds[10], RIGHT_FOOT_DOWN[10])
+  # speed_pos_control(12, speeds[11], RIGHT_FOOT_DOWN[11])
+  #spinWhileMoving()
+
+  #rospy.loginfo("RIGHT_FOOT_TORSO")
+  # targets = RIGHT_FOOT_TORSO
+  # speeds = calculateServoSpeed()
+  # speed_pos_control(1, speeds[0], RIGHT_FOOT_TORSO[0])
+  # speed_pos_control(2, speeds[1], RIGHT_FOOT_TORSO[1])
+  # speed_pos_control(3, speeds[2], RIGHT_FOOT_TORSO[2])
+  # speed_pos_control(4, speeds[3], RIGHT_FOOT_TORSO[3])
+  # speed_pos_control(5, speeds[4], RIGHT_FOOT_TORSO[4])
+  # speed_pos_control(6, speeds[5], RIGHT_FOOT_TORSO[5])
+  # speed_pos_control(7, speeds[6], RIGHT_FOOT_TORSO[6])
+  # speed_pos_control(8, speeds[7], RIGHT_FOOT_TORSO[7])
+  # speed_pos_control(9, speeds[8], RIGHT_FOOT_TORSO[8])
+  # speed_pos_control(10, speeds[9], RIGHT_FOOT_TORSO[9])
+  # speed_pos_control(11, speeds[10], RIGHT_FOOT_TORSO[10])
+  # speed_pos_control(12, speeds[11], RIGHT_FOOT_TORSO[11])
+  # spinWhileMoving() # could be replaced by righting IMU
+  #Replacing with IMU measurements would look something like this:
+  #rospy.init_node('imu_Node', anonymous=True)
+  #sub = rospy.Subscriber("navx_micro/euler", Vector3Stamped, callback)
+  #pitch = sub.vector.x
+  #roll = sub.vector.y
+  #yaw = sub.vector.z
+  #Then implement a spin function like you were using, could make the callback
+  #function I have blank for do that, but we would need separate for the
+  #motors and the IMU
+
 def leftStep():
   #rospy.loginfo("Left Step: ")
   #rospy.loginfo("RIGHT_LEG_STRAIGHT")
@@ -475,4 +547,13 @@ if __name__ == "__main__":
   position_control(10, STAND[9])
   position_control(11, STAND[10])
   position_control(12, STAND[11])
-  walkLogic(3)
+  time.sleep(DELAY)
+  StepOff()
+  closeStepRForward()
+  stepOffL()
+  closeStepLForward()
+  stepOff()
+  closeStepRForward()
+
+
+  #walkLogic(3)
