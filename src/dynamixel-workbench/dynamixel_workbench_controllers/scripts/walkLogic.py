@@ -21,17 +21,19 @@ from functions import speed_pos_control
 
 TOLERANCE = 5 # %tolerance = TOLERANCE / 1023 (In this case ~0.3%)
 BASE_MOTOR_SPEED = 128 # Sets the speed for the servo moving the farthest in a state change.
-STAND = np.array([512,512,512,512,512,512,512,512,512,512,512,512])
-RIGHT_FOOT_FORWARD = np.array([512,512,720,750,512,512,512,512,512,512,512,512])
-RIGHT_FOOT_DOWN = np.array([512,512,720,750,512,512,512,405,455,565,512,512])
-RIGHT_FOOT_TORSO = np.array([512,512,720,740,512,512,512,405,455,565,512,512])
-RIGHT_LEG_STRAIGHT = np.array([512,512,512,512,512,512,512,405,455,565,512,512])
-LEFT_FOOT_FORWARD = np.array([512,512,512,512,512,512,512,512,304,295,512,512])
-LEFT_FOOT_DOWN = np.array([512,620,570,464,512,512,512,512,304,295,512,512])
-LEFT_FOOT_TORSO = np.array([512,620,570,464,512,512,512,512,304,299,512,512])
-LEFT_LEG_STRAIGHT = np.array([512,620,570,464,512,512,512,512,512,512,512,512])
+STAND = np.array([512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512])
+RIGHT_FOOT_FORWARD = np.array([512,512,720,750,512,512,512,512,512,512,512,512,512,512,512,512,512,512])
+RIGHT_FOOT_DOWN = np.array([512,512,720,750,512,512,512,405,455,565,512,512,512,512,512,512,512,512])
+RIGHT_FOOT_TORSO = np.array([512,512,720,740,512,512,512,405,455,565,512,512,512,512,512,512,512,512])
+RIGHT_LEG_STRAIGHT = np.array([512,512,512,512,512,512,512,405,455,565,512,512,512,512,512,512,512,512])
+LEFT_FOOT_FORWARD = np.array([512,512,512,512,512,512,512,512,304,295,512,512,512,512,512,512,512,512])
+LEFT_FOOT_DOWN = np.array([512,620,570,464,512,512,512,512,304,295,512,512,512,512,512,512,512,512])
+LEFT_FOOT_TORSO = np.array([512,620,570,464,512,512,512,512,304,299,512,512,512,512,512,512,512,512])
+LEFT_LEG_STRAIGHT = np.array([512,620,570,464,512,512,512,512,512,512,512,512,512,512,512,512,512,512])
 
 targets = np.zeros(18)
+
+PREVIOUS_STATE = np.zeros(18)
 
 class speed_calc:
 
@@ -68,7 +70,6 @@ def motor_callback(motorSub):
   rate = rospy.Rate(10)
   moving = True
   while moving:
-    rospy.loginfo("%s" % (motorSub.dynamixel_state[0].id))
     for servoInfo in motorSub.dynamixel_state:
       moving = moving and abs(servoInfo.present_position - targets[servoInfo.id-1]) > TOLERANCE
 
@@ -100,6 +101,8 @@ def spinWhileMoving():
 def stepOff():
   # TODO Also determine if we can get away with only calling the motors that need to move for each step instead of all of them
   # TODO test and see if we need to implement time.sleep() in between certain lines
+  rospy.loginfo("Step Off: ")
+  rospy.loginfo("RIGHT_FOOT_FORWARD")
   targets = RIGHT_FOOT_FORWARD
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], RIGHT_FOOT_FORWARD[0])
@@ -118,6 +121,7 @@ def stepOff():
   spinWhileMoving()
   print(119)
 
+  rospy.loginfo("RIGHT_FOOT_DOWN")
   targets = RIGHT_FOOT_DOWN
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], RIGHT_FOOT_DOWN[0])
@@ -134,6 +138,7 @@ def stepOff():
   speed_pos_control(12, speeds[11], RIGHT_FOOT_DOWN[11])
   spinWhileMoving()
 
+  rospy.loginfo("RIGHT_FOOT_TORSO")
   targets = RIGHT_FOOT_TORSO
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], RIGHT_FOOT_TORSO[0])
@@ -159,6 +164,8 @@ def stepOff():
   #function I have blank for do that, but we would need separate for the
   #motors and the IMU
 def leftStep():
+  rospy.loginfo("Left Step: ")
+  rospy.loginfo("RIGHT_LEG_STRAIGHT")
   targets = RIGHT_LEG_STRAIGHT
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], RIGHT_LEG_STRAIGHT[0])
@@ -175,6 +182,7 @@ def leftStep():
   speed_pos_control(12, speeds[11], RIGHT_LEG_STRAIGHT[11])
   spinWhileMoving()
 
+  rospy.loginfo("LEFT_FOOT_FORWARD")
   targets = LEFT_FOOT_FORWARD
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], LEFT_FOOT_FORWARD[0])
@@ -191,6 +199,7 @@ def leftStep():
   speed_pos_control(12, speeds[11], LEFT_FOOT_FORWARD[11])
   spinWhileMoving()
 
+  rospy.loginfo("LEFT_FOOT_DOWN")
   targets = LEFT_FOOT_DOWN
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], LEFT_FOOT_DOWN[0])
@@ -207,6 +216,7 @@ def leftStep():
   speed_pos_control(12, speeds[11], LEFT_FOOT_DOWN[11])
   spinWhileMoving()
 
+  rospy.loginfo("LEFT_FOOT_TORSO")
   targets = LEFT_FOOT_TORSO
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], LEFT_FOOT_TORSO[0])
@@ -233,6 +243,8 @@ def leftStep():
   #motors and the IMU
 
 def rightStep():
+  rospy.loginfo("Right Step: ")
+  rospy.loginfo("LEFT_LEG_STRAIGHT")
   targets = LEFT_LEG_STRAIGHT
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], LEFT_LEG_STRAIGHT[0])
@@ -249,6 +261,7 @@ def rightStep():
   speed_pos_control(12, speeds[11], LEFT_LEG_STRAIGHT[11])
   spinWhileMoving()
 
+  rospy.loginfo("RIGHT_FOOT_FORWARD")
   targets = RIGHT_FOOT_FORWARD
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], RIGHT_FOOT_FORWARD[0])
@@ -265,6 +278,7 @@ def rightStep():
   speed_pos_control(12, speeds[11], RIGHT_FOOT_FORWARD[11])
   spinWhileMoving()
 
+  rospy.loginfo("RIGHT_FOOT_DOWN")
   targets = RIGHT_FOOT_DOWN
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], RIGHT_FOOT_DOWN[0])
@@ -281,6 +295,7 @@ def rightStep():
   speed_pos_control(12, speeds[11], RIGHT_FOOT_DOWN[11])
   spinWhileMoving()
 
+  rospy.loginfo("RIGHT_FOOT_TORSO")
   targets = RIGHT_FOOT_TORSO
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], RIGHT_FOOT_TORSO[0])
@@ -307,6 +322,8 @@ def rightStep():
   #motors and the IMU
 
 def closeStepLForward():
+  rospy.loginfo("Close Step Left Forward")
+  rospy.loginfo("LEFT_LEG_STRAIGHT")
   targets = LEFT_LEG_STRAIGHT
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], LEFT_LEG_STRAIGHT[0])
@@ -323,6 +340,7 @@ def closeStepLForward():
   speed_pos_control(12, speeds[11], LEFT_LEG_STRAIGHT[11])
   spinWhileMoving()
 
+  rospy.loginfo("STAND")
   targets = STAND
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], STAND[0])
@@ -340,6 +358,8 @@ def closeStepLForward():
   spinWhileMoving()
 
 def closeStepRForward():
+  rospy.loginfo("Close Step Right Forward")
+  rospy.loginfo("RIGHT_LEG_STRAIGHT")
   targets = RIGHT_LEG_STRAIGHT
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], RIGHT_LEG_STRAIGHT[0])
@@ -355,6 +375,7 @@ def closeStepRForward():
   speed_pos_control(11, speeds[10], RIGHT_LEG_STRAIGHT[10])
   speed_pos_control(12, speeds[11], RIGHT_LEG_STRAIGHT[11])
 
+  rospy.loginfo("STAND")
   targets = STAND
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], STAND[0])
