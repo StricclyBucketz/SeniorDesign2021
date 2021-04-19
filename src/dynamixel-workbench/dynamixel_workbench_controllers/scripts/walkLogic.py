@@ -5,6 +5,7 @@ import enum
 import sys
 import numpy as np
 import math
+import time
 
 from std_msgs.msg import String
 from dynamixel_workbench_msgs.srv import DynamixelCommand
