@@ -44,19 +44,19 @@ def test_control():
     #left shoulder
     speed_control(13, 128)
 
-    position_control(2, 580)
+    #position_control(2, 580)
     #right foot
     #position_control(1, 550)
     #right hip
-    position_control(5, 550)
+    #position_control(5, 550)
     #right shoulder
-    position_control(16, 570)
+    #position_control(16, 570)
     #left foot
     #position_control(7, 550)
     #left hip
-    position_control(11, 450)
+    #position_control(11, 450)
     #left shoulder
-    position_control(13, 450)
+    #position_control(13, 450)
 
 def speed_pos_control(ID, speed, position):
     rospy.wait_for_service('/dynamixel_workbench/dynamixel_command')
