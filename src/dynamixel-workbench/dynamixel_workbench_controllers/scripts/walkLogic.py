@@ -436,7 +436,7 @@ def closeStepRForward():
   #spinWhileMoving()
 
 def walkLogic(stepsToTake):
-  closeStepLForward()
+
   stepsTaken = 0
   forwardFoot = ForwardFoot.neither
   while stepsTaken < stepsToTake:
@@ -463,4 +463,16 @@ def walkLogic(stepsToTake):
   forwardFoot = ForwardFoot.neither
 
 if __name__ == "__main__":
-  walkLogic(2)
+  position_control(1, STAND[0])
+  position_control(2, STAND[1])
+  position_control(3, STAND[2])
+  position_control(4, STAND[3])
+  position_control(5, STAND[4])
+  position_control(6, STAND[5])
+  position_control(7, STAND[6])
+  position_control(8, STAND[7])
+  position_control(9, STAND[8])
+  position_control(10, STAND[9])
+  position_control(11, STAND[10])
+  position_control(12, STAND[11])
+  walkLogic(3)
