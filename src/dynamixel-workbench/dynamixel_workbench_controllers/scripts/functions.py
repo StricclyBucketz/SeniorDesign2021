@@ -44,6 +44,7 @@ def test_control():
     #left shoulder
     speed_control(13, 128)
 
+    position_control(2, 480)
     #right foot
     #position_control(1, 550)
     #right hip
