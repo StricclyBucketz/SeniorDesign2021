@@ -15,16 +15,31 @@ from geometry_msgs.msg import Quaternion, Vector3, Vector3Stamped
 from sensor_msgs.msg import Imu
 
 def test_control():
+    #right foot
     speed_control(1, 128)
+    #right hip
     speed_control(5, 128)
+    #right shoulder
+    speed_control(16, 128)
+    #left foot
     speed_control(7, 128)
+    #left hip
     speed_control(11, 128)
-    speed_control(1, 128)
+    #left shoulder
+    speed_control(13, 128)
+
+    #right foot
     position_control(1, 550)
+    #right hip
     position_control(5, 550)
+    #right shoulder
+    position_control(16, 570)
+    #left foot
     position_control(7, 470)
-    position_control(11, 470)
-    position_control(13, 550)
+    #left hip
+    position_control(11, 550)
+    #left shoulder
+    position_control(13, 450)
 
 def speed_pos_control(ID, speed, position):
     rospy.wait_for_service('/dynamixel_workbench/dynamixel_command')
