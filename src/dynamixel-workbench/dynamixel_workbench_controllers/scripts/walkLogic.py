@@ -20,7 +20,7 @@ from sensor_msgs.msg import Imu
 from functions import speed_control, position_control
 
 TOLERANCE = 10 # %tolerance = TOLERANCE / 1023 (In this case ~0.3%)
-BASE_MOTOR_SPEED = 1 # Sets the speed for the servo moving the farthest in a state change.
+BASE_MOTOR_SPEED = 128 # Sets the speed for the servo moving the farthest in a state change.
 STAND = np.array([512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512])
 RIGHT_FOOT_FORWARD = np.array([512,512,720,750,512,512,512,512,512,512,512,512,512,512,512,512,512,512])
 RIGHT_FOOT_DOWN = np.array([512,512,720,750,512,512,512,405,455,565,512,512,512,512,512,512,512,512])
@@ -201,7 +201,6 @@ def leftStep():
   speed_control(9, math.ceil(0.382*BASE_MOTOR_SPEED))
   speed_control(10, math.ceil(0.539*BASE_MOTOR_SPEED))
   speed_control(11, BASE_MOTOR_SPEED)
-  time.sleep(1)
   position_control(9, LEFT_FOOT_FORWARD[8])
   position_control(10, LEFT_FOOT_FORWARD[9])
   position_control(11, LEFT_FOOT_FORWARD[10])
@@ -267,7 +266,6 @@ def rightStep():
   # speed_pos_control(6, speeds[5], LEFT_LEG_STRAIGHT[5])
   # speed_pos_control(7, speeds[6], LEFT_LEG_STRAIGHT[6])
   # speed_pos_control(8, speeds[7], LEFT_LEG_STRAIGHT[7])
-
   speed_control(9, math.ceil(0.959*BASE_MOTOR_SPEED))
   speed_control(10, BASE_MOTOR_SPEED)
   position_control(9, LEFT_LEG_STRAIGHT[8])
