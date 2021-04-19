@@ -535,6 +535,7 @@ def walkLogic(stepsToTake):
   forwardFoot = ForwardFoot.neither
 
 if __name__ == "__main__":
+
   position_control(1, STAND[0])
   position_control(2, STAND[1])
   position_control(3, STAND[2])
@@ -548,7 +549,7 @@ if __name__ == "__main__":
   position_control(11, STAND[10])
   position_control(12, STAND[11])
   time.sleep(DELAY)
-  StepOff()
+  stepOff()
   closeStepRForward()
   stepOffL()
   closeStepLForward()
