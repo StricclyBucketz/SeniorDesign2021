@@ -101,8 +101,8 @@ def spinWhileMoving():
 def stepOff():
   # TODO Also determine if we can get away with only calling the motors that need to move for each step instead of all of them
   # TODO test and see if we need to implement time.sleep() in between certain lines
-  rospy.loginfo("Step Off: ")
-  rospy.loginfo("RIGHT_FOOT_FORWARD")
+  #rospy.loginfo("Step Off: ")
+  #rospy.loginfo("RIGHT_FOOT_FORWARD")
   targets = RIGHT_FOOT_FORWARD
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], RIGHT_FOOT_FORWARD[0])
@@ -119,7 +119,7 @@ def stepOff():
   speed_pos_control(12, speeds[11], RIGHT_FOOT_FORWARD[11])
   spinWhileMoving()
 
-  rospy.loginfo("RIGHT_FOOT_DOWN")
+  #rospy.loginfo("RIGHT_FOOT_DOWN")
   targets = RIGHT_FOOT_DOWN
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], RIGHT_FOOT_DOWN[0])
@@ -136,7 +136,7 @@ def stepOff():
   speed_pos_control(12, speeds[11], RIGHT_FOOT_DOWN[11])
   spinWhileMoving()
 
-  rospy.loginfo("RIGHT_FOOT_TORSO")
+  #rospy.loginfo("RIGHT_FOOT_TORSO")
   targets = RIGHT_FOOT_TORSO
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], RIGHT_FOOT_TORSO[0])
@@ -162,8 +162,8 @@ def stepOff():
   #function I have blank for do that, but we would need separate for the
   #motors and the IMU
 def leftStep():
-  rospy.loginfo("Left Step: ")
-  rospy.loginfo("RIGHT_LEG_STRAIGHT")
+  #rospy.loginfo("Left Step: ")
+  #rospy.loginfo("RIGHT_LEG_STRAIGHT")
   targets = RIGHT_LEG_STRAIGHT
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], RIGHT_LEG_STRAIGHT[0])
@@ -180,7 +180,7 @@ def leftStep():
   speed_pos_control(12, speeds[11], RIGHT_LEG_STRAIGHT[11])
   spinWhileMoving()
 
-  rospy.loginfo("LEFT_FOOT_FORWARD")
+  #rospy.loginfo("LEFT_FOOT_FORWARD")
   targets = LEFT_FOOT_FORWARD
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], LEFT_FOOT_FORWARD[0])
@@ -197,7 +197,7 @@ def leftStep():
   speed_pos_control(12, speeds[11], LEFT_FOOT_FORWARD[11])
   spinWhileMoving()
 
-  rospy.loginfo("LEFT_FOOT_DOWN")
+  #rospy.loginfo("LEFT_FOOT_DOWN")
   targets = LEFT_FOOT_DOWN
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], LEFT_FOOT_DOWN[0])
@@ -214,7 +214,7 @@ def leftStep():
   speed_pos_control(12, speeds[11], LEFT_FOOT_DOWN[11])
   spinWhileMoving()
 
-  rospy.loginfo("LEFT_FOOT_TORSO")
+  #rospy.loginfo("LEFT_FOOT_TORSO")
   targets = LEFT_FOOT_TORSO
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], LEFT_FOOT_TORSO[0])
@@ -391,6 +391,7 @@ def closeStepRForward():
   spinWhileMoving()
 
 def walkLogic(stepsToTake):
+  closeStepLForward()
   stepsTaken = 0
   forwardFoot = ForwardFoot.neither
   while stepsTaken < stepsToTake:
