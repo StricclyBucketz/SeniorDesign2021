@@ -14,6 +14,16 @@ from navx_micro._impl.ahrsprotocol import AHRSProtocol
 from geometry_msgs.msg import Quaternion, Vector3, Vector3Stamped
 from sensor_msgs.msg import Imu
 
+def test_control():
+    speed_control(1, 128)
+    speed_control(5, 128)
+    speed_control(7, 128)
+    speed_control(11, 128)
+    position_control(1, 550)
+    position_control(5, 550)
+    position_control(7, 470)
+    position_control(11, 470)
+
 def speed_pos_control(ID, speed, position):
     rospy.wait_for_service('/dynamixel_workbench/dynamixel_command')
     try:
@@ -74,6 +84,9 @@ def IMU_subscriber():
     rospy.spin()
 
 if __name__ == "__main__":
+
+    test_control()
+
     #to see examples of the functions running, just uncomment them
 
     #Gets data from IMU, you can use access it by using sub.vector.x etc.
@@ -88,11 +101,6 @@ if __name__ == "__main__":
     #Sets motor speed, arguments are motor ID and goal speed (0, 1023)
     #speed_control(1, 512)
 
-    speed_control(1, 512)
-    position_control(1, 450)
-    time.sleep(2)
-    speed_control(1, 20)
-    position_control(1, 512)
 
     #Me attempting to combine the above functions, it appears to work.
     #(ID, Speed, Position)
