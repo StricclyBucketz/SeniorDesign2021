@@ -28,29 +28,30 @@ def test_control():
     position_control(11, 512)
     position_control(12, 512)
     position_control(13, 512)
+    position_control(16, 512)
     time.sleep(2)
 
     #right foot
-    speed_control(1, 128)
+    #speed_control(1, 128)
     #right hip
     speed_control(5, 128)
     #right shoulder
     speed_control(16, 128)
     #left foot
-    speed_control(7, 128)
+    #speed_control(7, 128)
     #left hip
     speed_control(11, 128)
     #left shoulder
     speed_control(13, 128)
 
     #right foot
-    position_control(1, 550)
+    #position_control(1, 550)
     #right hip
     position_control(5, 550)
     #right shoulder
     position_control(16, 570)
     #left foot
-    position_control(7, 550)
+    #position_control(7, 550)
     #left hip
     position_control(11, 550)
     #left shoulder
