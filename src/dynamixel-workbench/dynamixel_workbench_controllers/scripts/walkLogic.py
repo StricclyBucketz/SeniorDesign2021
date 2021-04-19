@@ -20,7 +20,7 @@ from sensor_msgs.msg import Imu
 
 from functions import speed_control, position_control
 
-DELAY = 0.1
+DELAY = 0.2
 TOLERANCE = 10 # %tolerance = TOLERANCE / 1023 (In this case ~0.3%)
 BASE_MOTOR_SPEED = 192 # Sets the speed for the servo moving the farthest in a state change.
 STAND = np.array([512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512])
