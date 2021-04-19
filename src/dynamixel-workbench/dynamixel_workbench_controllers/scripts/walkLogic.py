@@ -463,4 +463,4 @@ def walkLogic(stepsToTake):
   forwardFoot = ForwardFoot.neither
 
 if __name__ == "__main__":
-  walkLogic(1)
+  walkLogic(2)
