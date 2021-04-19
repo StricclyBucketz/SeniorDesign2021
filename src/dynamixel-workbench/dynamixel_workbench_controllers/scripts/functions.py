@@ -15,6 +15,21 @@ from geometry_msgs.msg import Quaternion, Vector3, Vector3Stamped
 from sensor_msgs.msg import Imu
 
 def test_control():
+    position_control(1, 512)
+    position_control(2, 512)
+    position_control(3, 512)
+    position_control(4, 512)
+    position_control(5, 512)
+    position_control(6, 512)
+    position_control(7, 512)
+    position_control(8, 512)
+    position_control(9, 512)
+    position_control(10, 512)
+    position_control(11, 512)
+    position_control(12, 512)
+    position_control(13, 512)
+    time.sleep(2)
+
     #right foot
     speed_control(1, 128)
     #right hip
