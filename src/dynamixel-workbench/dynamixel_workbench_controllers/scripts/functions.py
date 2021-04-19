@@ -19,10 +19,12 @@ def test_control():
     speed_control(5, 128)
     speed_control(7, 128)
     speed_control(11, 128)
+    speed_control(1, 128)
     position_control(1, 550)
     position_control(5, 550)
     position_control(7, 470)
     position_control(11, 470)
+    position_control(13, 550)
 
 def speed_pos_control(ID, speed, position):
     rospy.wait_for_service('/dynamixel_workbench/dynamixel_command')
