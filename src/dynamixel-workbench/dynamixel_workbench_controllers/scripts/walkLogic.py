@@ -117,9 +117,7 @@ def stepOff():
   speed_pos_control(10, speeds[9], RIGHT_FOOT_FORWARD[9])
   speed_pos_control(11, speeds[10], RIGHT_FOOT_FORWARD[10])
   speed_pos_control(12, speeds[11], RIGHT_FOOT_FORWARD[11])
-  print(117)
   spinWhileMoving()
-  print(119)
 
   rospy.loginfo("RIGHT_FOOT_DOWN")
   targets = RIGHT_FOOT_DOWN
@@ -243,8 +241,8 @@ def leftStep():
   #motors and the IMU
 
 def rightStep():
-  rospy.loginfo("Right Step: ")
-  rospy.loginfo("LEFT_LEG_STRAIGHT")
+#  rospy.loginfo("Right Step: ")
+#  rospy.loginfo("LEFT_LEG_STRAIGHT")
   targets = LEFT_LEG_STRAIGHT
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], LEFT_LEG_STRAIGHT[0])
@@ -261,7 +259,7 @@ def rightStep():
   speed_pos_control(12, speeds[11], LEFT_LEG_STRAIGHT[11])
   spinWhileMoving()
 
-  rospy.loginfo("RIGHT_FOOT_FORWARD")
+#  rospy.loginfo("RIGHT_FOOT_FORWARD")
   targets = RIGHT_FOOT_FORWARD
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], RIGHT_FOOT_FORWARD[0])
@@ -278,7 +276,7 @@ def rightStep():
   speed_pos_control(12, speeds[11], RIGHT_FOOT_FORWARD[11])
   spinWhileMoving()
 
-  rospy.loginfo("RIGHT_FOOT_DOWN")
+#  rospy.loginfo("RIGHT_FOOT_DOWN")
   targets = RIGHT_FOOT_DOWN
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], RIGHT_FOOT_DOWN[0])
@@ -295,7 +293,7 @@ def rightStep():
   speed_pos_control(12, speeds[11], RIGHT_FOOT_DOWN[11])
   spinWhileMoving()
 
-  rospy.loginfo("RIGHT_FOOT_TORSO")
+#  rospy.loginfo("RIGHT_FOOT_TORSO")
   targets = RIGHT_FOOT_TORSO
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], RIGHT_FOOT_TORSO[0])
@@ -322,8 +320,8 @@ def rightStep():
   #motors and the IMU
 
 def closeStepLForward():
-  rospy.loginfo("Close Step Left Forward")
-  rospy.loginfo("LEFT_LEG_STRAIGHT")
+#  rospy.loginfo("Close Step Left Forward")
+#  rospy.loginfo("LEFT_LEG_STRAIGHT")
   targets = LEFT_LEG_STRAIGHT
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], LEFT_LEG_STRAIGHT[0])
@@ -340,7 +338,7 @@ def closeStepLForward():
   speed_pos_control(12, speeds[11], LEFT_LEG_STRAIGHT[11])
   spinWhileMoving()
 
-  rospy.loginfo("STAND")
+#  rospy.loginfo("STAND")
   targets = STAND
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], STAND[0])
@@ -358,8 +356,8 @@ def closeStepLForward():
   spinWhileMoving()
 
 def closeStepRForward():
-  rospy.loginfo("Close Step Right Forward")
-  rospy.loginfo("RIGHT_LEG_STRAIGHT")
+#  rospy.loginfo("Close Step Right Forward")
+#  rospy.loginfo("RIGHT_LEG_STRAIGHT")
   targets = RIGHT_LEG_STRAIGHT
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], RIGHT_LEG_STRAIGHT[0])
@@ -375,7 +373,7 @@ def closeStepRForward():
   speed_pos_control(11, speeds[10], RIGHT_LEG_STRAIGHT[10])
   speed_pos_control(12, speeds[11], RIGHT_LEG_STRAIGHT[11])
 
-  rospy.loginfo("STAND")
+#  rospy.loginfo("STAND")
   targets = STAND
   speeds = calculateServoSpeed()
   speed_pos_control(1, speeds[0], STAND[0])
@@ -397,20 +395,21 @@ def walkLogic(stepsToTake):
   forwardFoot = ForwardFoot.neither
   while stepsTaken < stepsToTake:
     if forwardFoot == ForwardFoot.neither:
-      print(f"StepOff\tstep#: {(stepsTaken+1)}")
+#      print(f"StepOff\tstep#: {(stepsTaken+1)}")
       stepOff()
       forwardFoot = ForwardFoot.right
     elif forwardFoot == ForwardFoot.right:
-      print(f"LeftStep\tstep#: {(stepsTaken+1)}")
+#      print(f"LeftStep\tstep#: {(stepsTaken+1)}")
       leftStep()
       forwardFoot = ForwardFoot.left
     elif forwardFoot == ForwardFoot.left:
-      print(f"RightStep\tstep#: {(stepsTaken+1)}")
+#      print(f"RightStep\tstep#: {(stepsTaken+1)}")
+      rightStep()
       forwardFoot = ForwardFoot.right
     else:
       sys.exit("ERROR: Invalid foot forward")
     stepsTaken += 1
-  print("CloseStep")
+ # print("CloseStep")
   if forwardFoot == ForwardFoot.left:
     closeStepLForward()
   else:
