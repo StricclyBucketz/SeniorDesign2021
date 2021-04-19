@@ -50,7 +50,7 @@ def test_control():
     #right shoulder
     position_control(16, 570)
     #left foot
-    position_control(7, 470)
+    position_control(7, 550)
     #left hip
     position_control(11, 550)
     #left shoulder
