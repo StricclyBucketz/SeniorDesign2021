@@ -261,6 +261,7 @@ def closeStepRForward():
   speed_control(4, BASE_MOTOR_SPEED)
   position_control(3, RIGHT_LEG_STRAIGHT[2])
   position_control(4, RIGHT_LEG_STRAIGHT[3])
+  position_control(13, 256)
   time.sleep(DELAY)
 
 #  rospy.loginfo("STAND")
