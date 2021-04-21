@@ -15,26 +15,26 @@ from geometry_msgs.msg import Quaternion, Vector3, Vector3Stamped
 from sensor_msgs.msg import Imu
 
 def test_control():
-    #
-    # position_control(1, 512)
-    # position_control(2, 512)
-    # position_control(3, 512)
-    # position_control(4, 512)
-    # position_control(5, 512)
-    # position_control(6, 512)
-    # position_control(7, 512)
-    # time.sleep(2)
-    # position_control(8, 512)
-    # position_control(9, 512)
-    # position_control(10, 512)
-    # position_control(11, 512)
-    # position_control(12, 512)
-    # position_control(13, 512)
-    # time.sleep(0.5)
-    # position_control(16, 512)
-    # position_control(17, 512)
-    # position_control(14, 512)
-    # time.sleep(2)
+    
+    position_control(1, 512)
+    position_control(2, 512)
+    position_control(3, 512)
+    position_control(4, 512)
+    position_control(5, 512)
+    position_control(6, 512)
+    position_control(7, 512)
+    time.sleep(2)
+    position_control(8, 512)
+    position_control(9, 512)
+    position_control(10, 512)
+    position_control(11, 512)
+    position_control(12, 512)
+    position_control(13, 512)
+    time.sleep(0.5)
+    position_control(16, 512)
+    position_control(17, 512)
+    position_control(14, 512)
+    time.sleep(2)
 
     #right foot
     #speed_control(1, 128)
@@ -55,14 +55,16 @@ def test_control():
     #right hip
     #position_control(5, 550)
     #right shoulder
-    position_control(13, 590)
-    position_control(16, 590)
-    time.sleep(.5)
-    position_control(13, 430)
-    position_control(16, 430)
-    time.sleep(1)
-    position_control(13, 512)
-    position_control(16, 512)
+
+    # position_control(13, 590)
+    # position_control(16, 590)
+    # time.sleep(.5)
+    # position_control(13, 430)
+    # position_control(16, 430)
+    # time.sleep(1)
+    # position_control(13, 512)
+    # position_control(16, 512)
+
     #left foot
     #position_control(7, 550)
     #left hip
