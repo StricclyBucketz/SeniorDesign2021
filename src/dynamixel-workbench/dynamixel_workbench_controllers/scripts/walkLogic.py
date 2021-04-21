@@ -236,8 +236,6 @@ def closeStepLForward():
   # speeds = calculateServoSpeed()
   speed_control(9, math.ceil(0.959*BASE_MOTOR_SPEED))
   speed_control(10, BASE_MOTOR_SPEED)
-  speed_control(hipleft, speed)
-  speed_control(hipright, speed)
   position_control(9, LEFT_LEG_STRAIGHT[8])
   position_control(10, LEFT_LEG_STRAIGHT[9])
   time.sleep(DELAY)
