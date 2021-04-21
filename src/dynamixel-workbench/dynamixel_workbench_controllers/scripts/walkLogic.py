@@ -114,8 +114,8 @@ def stepOff():
   position_control(4, RIGHT_FOOT_FORWARD[3])
   position_control(13, 430)
   position_control(16, 430)
-  position_control(5, 550)
-  position_control(11, 550)
+  position_control(5, 470)
+  position_control(11, 470)
   time.sleep(DELAY)
   #spinWhileMoving()
 
