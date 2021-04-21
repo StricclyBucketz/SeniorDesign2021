@@ -326,7 +326,7 @@ if __name__ == "__main__":
   position_control(18, 512)
   time.sleep(DELAY)
   stepOff()
-  # closeStepRForward()
+  closeStepRForward()
   # stepOffL()
   # closeStepLForward()
   # stepOff()
