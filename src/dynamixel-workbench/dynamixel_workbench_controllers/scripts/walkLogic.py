@@ -22,7 +22,7 @@ from functions import speed_control, position_control
 
 DELAY = 0.225
 TOLERANCE = 10 # %tolerance = TOLERANCE / 1023 (In this case ~0.3%)
-BASE_MOTOR_SPEED = 512 #Sets the speed for the servo moving the farthest in a state change.
+BASE_MOTOR_SPEED = 256 #Sets the speed for the servo moving the farthest in a state change.
 STAND = np.array([512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512])
 RIGHT_FOOT_FORWARD = np.array([512,512,720,750,512,512,512,512,512,512,512,512,512,512,512,512,512,512])
 RIGHT_FOOT_DOWN = np.array([512,512,720,750,512,512,512,405,455,565,512,512,512,512,512,512,512,512])
@@ -106,8 +106,16 @@ def stepOff():
   # speeds = calculateServoSpeed()
   speed_control(3, math.ceil(0.874*BASE_MOTOR_SPEED))
   speed_control(4, BASE_MOTOR_SPEED)
+  speed_control(13, BASE_MOTOR_SPEED)
+  speed_control(16, BASE_MOTOR_SPEED)
+  speed_control(5, BASE_MOTOR_SPEED)
+  speed_control(11, BASE_MOTOR_SPEED)
   position_control(3, RIGHT_FOOT_FORWARD[2])
   position_control(4, RIGHT_FOOT_FORWARD[3])
+  position_control(13, 430)
+  position_control(16, 430)
+  position_control(5, 550)
+  position_control(11, 550)
   time.sleep(DELAY)
   #spinWhileMoving()
 
@@ -228,6 +236,8 @@ def closeStepLForward():
   # speeds = calculateServoSpeed()
   speed_control(9, math.ceil(0.959*BASE_MOTOR_SPEED))
   speed_control(10, BASE_MOTOR_SPEED)
+  speed_control(hipleft, speed)
+  speed_control(hipright, speed)
   position_control(9, LEFT_LEG_STRAIGHT[8])
   position_control(10, LEFT_LEG_STRAIGHT[9])
   time.sleep(DELAY)
@@ -318,11 +328,11 @@ if __name__ == "__main__":
   position_control(18, 512)
   time.sleep(DELAY)
   stepOff()
-  closeStepRForward()
-  stepOffL()
-  closeStepLForward()
-  stepOff()
-  closeStepRForward()
+  # closeStepRForward()
+  # stepOffL()
+  # closeStepLForward()
+  # stepOff()
+  # closeStepRForward()
 
 
   #walkLogic(3)
