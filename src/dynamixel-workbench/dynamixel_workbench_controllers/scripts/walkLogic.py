@@ -22,7 +22,7 @@ from functions import speed_control, position_control
 
 DELAY = 0.225
 TOLERANCE = 10 # %tolerance = TOLERANCE / 1023 (In this case ~0.3%)
-BASE_MOTOR_SPEED = 128 # Sets the speed for the servo moving the farthest in a state change.
+BASE_MOTOR_SPEED = 512 #Sets the speed for the servo moving the farthest in a state change.
 STAND = np.array([512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512])
 RIGHT_FOOT_FORWARD = np.array([512,512,720,750,512,512,512,512,512,512,512,512,512,512,512,512,512,512])
 RIGHT_FOOT_DOWN = np.array([512,512,720,750,512,512,512,405,455,565,512,512,512,512,512,512,512,512])
@@ -302,12 +302,20 @@ if __name__ == "__main__":
   position_control(4, STAND[3])
   position_control(5, STAND[4])
   position_control(6, STAND[5])
+  time.sleep(0.5)
   position_control(7, STAND[6])
   position_control(8, STAND[7])
   position_control(9, STAND[8])
   position_control(10, STAND[9])
   position_control(11, STAND[10])
   position_control(12, STAND[11])
+  time.sleep(0.5)
+  position_control(13, 512)
+  position_control(14, 512)
+  position_control(15, 512)
+  position_control(16, 512)
+  position_control(17, 512)
+  position_control(18, 512)
   time.sleep(DELAY)
   stepOff()
   closeStepRForward()

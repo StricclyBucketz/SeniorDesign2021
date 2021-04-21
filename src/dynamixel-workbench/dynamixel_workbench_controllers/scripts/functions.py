@@ -29,6 +29,7 @@ def test_control():
     position_control(11, 512)
     position_control(12, 512)
     position_control(13, 512)
+    time.sleep(0.5)
     position_control(16, 512)
     time.sleep(2)
 
