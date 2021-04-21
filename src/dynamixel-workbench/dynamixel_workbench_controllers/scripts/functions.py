@@ -31,6 +31,8 @@ def test_control():
     position_control(13, 512)
     time.sleep(0.5)
     position_control(16, 512)
+    position_control(17, 512)
+    position_control(14, 512)
     time.sleep(2)
 
     #right foot
