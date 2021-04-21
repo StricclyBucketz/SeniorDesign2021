@@ -113,7 +113,7 @@ def stepOff():
   position_control(3, RIGHT_FOOT_FORWARD[2])
   position_control(4, RIGHT_FOOT_FORWARD[3])
   # position_control(13, 430)
-  position_control(16, 330)
+  position_control(16, 730)
   # position_control(5, 470)
   # position_control(11, 470)
   time.sleep(DELAY)
