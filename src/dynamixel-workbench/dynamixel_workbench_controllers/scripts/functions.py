@@ -55,11 +55,11 @@ def test_control():
     #right hip
     #position_control(5, 550)
     #right shoulder
-    position_control(16, 590)
+    position_control(13, 590)
     time.sleep(.5)
-    position_control(16, 430)
-    time.sleep(.5)
-    position_control(16, 512)
+    position_control(13, 430)
+    time.sleep(1)
+    position_control(13, 512)
     #left foot
     #position_control(7, 550)
     #left hip
