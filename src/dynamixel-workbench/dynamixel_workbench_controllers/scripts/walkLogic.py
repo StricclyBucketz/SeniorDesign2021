@@ -319,7 +319,7 @@ if __name__ == "__main__":
   position_control(12, STAND[11])
   time.sleep(0.5)
   position_control(13, 512)
-  position_control(14, 352)
+  position_control(14, 256)
   position_control(15, 512)
   position_control(16, 512)
   position_control(17, 512)
