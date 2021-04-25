@@ -22,7 +22,7 @@ from functions import speed_control, position_control
 
 DELAY = 0.225
 TOLERANCE = 10 # %tolerance = TOLERANCE / 1023 (In this case ~0.3%)
-BASE_MOTOR_SPEED = 128 # Sets the speed for the servo moving the farthest in a state change.
+BASE_MOTOR_SPEED = 256 # Sets the speed for the servo moving the farthest in a state change.
 FIVETWELVE = np.array([512,512,512])
 R_NEUTRAL = np.array([612,312,412])
 L_NEUTRAL = np.array([412,712,612])
