@@ -65,8 +65,8 @@ def motor_callback(motorSub):
 
   rate = rospy.Rate(10)
   moving = True
-  i = 0
   while moving:
+    i = 0
     for index in indices:
       servoInfo = motorSub.dynamixel_state[int(index)]
       moving = moving and abs(servoInfo.present_position - targets[i]) > TOLERANCE
