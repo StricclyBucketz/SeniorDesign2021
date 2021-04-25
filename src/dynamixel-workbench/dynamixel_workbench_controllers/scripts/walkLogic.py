@@ -67,7 +67,7 @@ def motor_callback(motorSub):
   moving = True
   while moving:
     for index in indices:
-      servoInfo = motorSub.dynamixel_state[index]
+      servoInfo = motorSub.dynamixel_state[int(index)]
       moving = moving and abs(servoInfo.present_position - targets[servoInfo.id-1]) > TOLERANCE
 
 # def calculateServoSpeed():
@@ -97,7 +97,7 @@ def leftStep():
   speed_control(8, L_SPEED[3])
   speed_control(9, L_SPEED[4])
   speed_control(10, L_SPEED[5])
-  
+
   targets = np.concatenate((R_DOWN, L_FORWARD), axis = None)
   position_control(2, R_DOWN[0])
   position_control(3, R_DOWN[1])
