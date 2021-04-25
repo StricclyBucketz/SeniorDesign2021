@@ -107,19 +107,22 @@ def leftStep():
   position_control(8, L_FORWARD[0])
   position_control(9, L_FORWARD[1])
   position_control(10, L_FORWARD[2])
-  spinWhileMoving()
+  time.sleep(DELAY)
+  # spinWhileMoving()
 
   targets = np.concatenate((R_NEUTRAL, L_FORWARD), axis = None)
   position_control(2, R_NEUTRAL[0])
   position_control(3, R_NEUTRAL[1])
   position_control(4, R_NEUTRAL[2])
-  spinWhileMoving()
+  time.sleep(DELAY)
+  # spinWhileMoving()
 
   targets = np.concatenate((R_NEUTRAL, L_NEUTRAL), axis = None)
   position_control(8, L_NEUTRAL[0])
   position_control(9, L_NEUTRAL[1])
   position_control(10, L_NEUTRAL[2])
-  spinWhileMoving()
+  time.sleep(DELAY)
+  # spinWhileMoving()
 
 
 def rightStep():
@@ -138,19 +141,22 @@ def rightStep():
   position_control(8, L_DOWN[0])
   position_control(9, L_DOWN[1])
   position_control(10, L_DOWN[2])
-  spinWhileMoving()
+  time.sleep(DELAY)
+  # spinWhileMoving()
 
   targets = np.concatenate((R_FORWARD, L_NEUTRAL), axis = None)
   position_control(8, L_NEUTRAL[0])
   position_control(9, L_NEUTRAL[1])
   position_control(10, L_NEUTRAL[2])
-  spinWhileMoving()
+  time.sleep(DELAY)
+  # spinWhileMoving()
 
   targets = np.concatenate((R_NEUTRAL, L_NEUTRAL), axis = None)
   position_control(2, R_NEUTRAL[0])
   position_control(3, R_NEUTRAL[1])
   position_control(4, R_NEUTRAL[2])
-  spinWhileMoving()
+  time.sleep(DELAY)
+  # spinWhileMoving()
 
 def walkLogic(stepsToTake):
   stepsTaken = 0
