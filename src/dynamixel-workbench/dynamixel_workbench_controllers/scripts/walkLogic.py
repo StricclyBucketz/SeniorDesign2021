@@ -97,8 +97,8 @@ def leftStep():
   speed_control(8, L_SPEED[3])
   speed_control(9, L_SPEED[4])
   speed_control(10, L_SPEED[5])
-  targets = np.concatenate(R_DOWN, L_FORWARD)
-
+  
+  targets = np.concatenate((R_DOWN, L_FORWARD), axis = None)
   position_control(2, R_DOWN[0])
   position_control(3, R_DOWN[1])
   position_control(4, R_DOWN[2])
@@ -107,13 +107,13 @@ def leftStep():
   position_control(10, L_FORWARD[2])
   spinWhileMoving()
 
-  targets = np.concatenate(R_NEUTRAL, L_FORWARD)
+  targets = np.concatenate((R_NEUTRAL, L_FORWARD), axis = None)
   position_control(2, R_NEUTRAL[0])
   position_control(3, R_NEUTRAL[1])
   position_control(4, R_NEUTRAL[2])
   spinWhileMoving()
 
-  targets = np.concatenate(R_NEUTRAL, L_NEUTRAL)
+  targets = np.concatenate((R_NEUTRAL, L_NEUTRAL), axis = None)
   position_control(8, L_NEUTRAL[0])
   position_control(9, L_NEUTRAL[1])
   position_control(10, L_NEUTRAL[2])
@@ -128,8 +128,8 @@ def rightStep():
   speed_control(8, R_SPEED[3])
   speed_control(9, R_SPEED[4])
   speed_control(10, R_SPEED[5])
-  targets = np.concatenate(R_FORWARD, L_DOWN)
 
+  targets = np.concatenate((R_FORWARD, L_DOWN), axis = None)
   position_control(2, R_FORWARD[0])
   position_control(3, R_FORWARD[1])
   position_control(4, R_FORWARD[2])
@@ -138,13 +138,13 @@ def rightStep():
   position_control(10, L_DOWN[2])
   spinWhileMoving()
 
-  targets = np.concatenate(R_FORWARD, L_NEUTRAL)
+  targets = np.concatenate((R_FORWARD, L_NEUTRAL), axis = None)
   position_control(8, L_NEUTRAL[0])
   position_control(9, L_NEUTRAL[1])
   position_control(10, L_NEUTRAL[2])
   spinWhileMoving()
 
-  targets = np.concatenate(R_NEUTRAL, L_NEUTRAL)
+  targets = np.concatenate((R_NEUTRAL, L_NEUTRAL), axis = None)
   position_control(2, R_NEUTRAL[0])
   position_control(3, R_NEUTRAL[1])
   position_control(4, R_NEUTRAL[2])
