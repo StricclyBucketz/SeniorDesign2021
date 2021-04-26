@@ -205,6 +205,6 @@ if __name__ == "__main__":
   position_control(10, TEN_POS[1])
   position_control(11, STATIC[0])
   position_control(12, STATIC[0])
-  time.sleep(DELAY)
+  time.sleep(3)
   #walkLogic(3) # TODO make this user input
   rightStep()
