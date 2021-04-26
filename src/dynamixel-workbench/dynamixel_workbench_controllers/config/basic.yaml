@@ -10,7 +10,7 @@ right_foot:
 right_ankle:
   ID: 2
   Return_Delay_Time: 0
-  CW_Angle_Limit: 302
+  CW_Angle_Limit: 202
   CCW_Angle_Limit: 737
 right_tibia:
   ID: 3
