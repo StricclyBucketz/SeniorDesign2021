@@ -115,6 +115,7 @@ def leftStep():
   position_control(11, FEETHIPS[1])
   position_control(2, EIGHT_POS[1])
   position_control(4, TEN_POS[1])
+  rospy.loginfo("Entering spin lock")
   spinWhileMoving()
 
   targets = np.array([FEETHIPS[1],FEETHIPS[0],FEETHIPS[1],FEETHIPS[0],EIGHT_POS[1],TEN_POS[1]])
