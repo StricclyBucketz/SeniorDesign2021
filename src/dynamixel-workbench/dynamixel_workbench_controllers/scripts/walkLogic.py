@@ -44,7 +44,8 @@ NINE_POS = np.array([762,787])
 TEN_POS = np.array([647,737])       # Default for servo 10, its extended state
 # FEETHIPS = np.array([487,537])      # When not 512, both hips are one, both feet are other
 FEETHIPS = np.array([492,532])      # When not 512, both hips are one, both feet are other
-TWIST = np.array([462, 562])
+# TWIST = np.array([462, 562])
+TWIST = np.array([487, 537])
 # SPEED = np.array([BASE_MOTOR_SPEED, math.ceil(BASE_MOTOR_SPEED / 2), math.ceil(BASE_MOTOR_SPEED / 4)]) # IF first/last step: {2,4,8,10},{1,5,7,11} ELSE: {all}, {}
 SPEED = np.array([BASE_MOTOR_SPEED, math.ceil(0.9*BASE_MOTOR_SPEED), math.ceil(0.7*BASE_MOTOR_SPEED), math.ceil(0.5*BASE_MOTOR_SPEED), math.ceil(0.4*BASE_MOTOR_SPEED), math.ceil(0.2*BASE_MOTOR_SPEED)]) # use PosSpeed
 
@@ -193,16 +194,20 @@ def walkLogic(stepsToTake):
       speed_control(5, SPEED[PosSpeed.fullFeetHips])
       speed_control(7, SPEED[PosSpeed.fullFeetHips])
       speed_control(11, SPEED[PosSpeed.fullFeetHips])
-      speed_control(6, math.ceil(0.5*SPEED[PosSpeed.fullTwist]))
-      speed_control(12, math.ceil(0.5*SPEED[PosSpeed.fullTwist]))
+      # speed_control(6, SPEED[PosSpeed.fullTwist])
+      # speed_control(12, SPEED[PosSpeed.fullTwist])
+      speed_control(6, 64)
+      speed_control(12, 64)
     if stepsTaken == 0:
       # isFirstLast = True
       speed_control(1, SPEED[PosSpeed.halfFeetHips])
       speed_control(5, SPEED[PosSpeed.halfFeetHips])
       speed_control(7, SPEED[PosSpeed.halfFeetHips])
       speed_control(11, SPEED[PosSpeed.halfFeetHips])
-      speed_control(6, math.ceil(0.5*SPEED[PosSpeed.threeNineHalfTwist]))
-      speed_control(12, math.ceil(0.5*SPEED[PosSpeed.threeNineHalfTwist]))
+      # speed_control(6, SPEED[PosSpeed.threeNineHalfTwist])
+      # speed_control(12, SPEED[PosSpeed.threeNineHalfTwist])
+      speed_control(6, 32)
+      speed_control(12, 32)
       speed_control(2, SPEED[PosSpeed.twoEight])
       speed_control(4, SPEED[PosSpeed.fourTen])
       speed_control(8, SPEED[PosSpeed.twoEight])
@@ -215,8 +220,10 @@ def walkLogic(stepsToTake):
       speed_control(5, SPEED[PosSpeed.halfFeetHips])
       speed_control(7, SPEED[PosSpeed.halfFeetHips])
       speed_control(11, SPEED[PosSpeed.halfFeetHips])
-      speed_control(6, math.ceil(0.5*SPEED[PosSpeed.threeNineHalfTwist]))
-      speed_control(12, math.ceil(0.5*SPEED[PosSpeed.threeNineHalfTwist]))
+      # speed_control(6, SPEED[PosSpeed.threeNineHalfTwist])
+      # speed_control(12, SPEED[PosSpeed.threeNineHalfTwist])
+      speed_control(6, 32)
+      speed_control(12, 32)
     if nextIsRight:
       rightStep()
       nextIsRight = not nextIsRight
