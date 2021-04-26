@@ -10,7 +10,7 @@ right_foot:
 right_ankle:
   ID: 2
   Return_Delay_Time: 0
-  CW_Angle_Limit: 412
+  CW_Angle_Limit: 302
   CCW_Angle_Limit: 737
 right_tibia:
   ID: 3
@@ -20,7 +20,7 @@ right_tibia:
 right_knee:
   ID: 4
   CW_Angle_Limit: 262
-  CCW_Angle_Limit: 612
+  CCW_Angle_Limit: 762
   Return_Delay_Time: 0
 right_hip:
   ID: 5
@@ -70,5 +70,3 @@ right_elbow:
 right_wrist:
   ID: 18
   Return_Delay_Time: 0
-
-
