@@ -170,22 +170,22 @@ def rightStep():
 def walkLogic(stepsToTake):
   stepsTaken = 0
   nextIsRight = True
-  speed_control(6, SPEED[1])
-  speed_control(12, SPEED[1])
+  speed_control(6, SPEED[0])
+  speed_control(12, SPEED[0])
   # isFirstLast = True
   while stepsTaken < stepsToTake:
     if stepsTaken == 1:
       # isFirstLast = False
       speed_control(1, SPEED[0])
-      speed_control(5, SPEED[2])
+      speed_control(5, SPEED[1])
       speed_control(7, SPEED[0])
-      speed_control(11, SPEED[2])
+      speed_control(11, SPEED[1])
     if stepsTaken == 0:
       # isFirstLast = True
       speed_control(1, SPEED[1])
-      speed_control(5, SPEED[2])
+      speed_control(5, SPEED[1])
       speed_control(7, SPEED[1])
-      speed_control(11, SPEED[2])
+      speed_control(11, SPEED[1])
       speed_control(2, SPEED[0])
       speed_control(4, SPEED[0])
       speed_control(8, SPEED[0])
@@ -193,9 +193,9 @@ def walkLogic(stepsToTake):
     elif stepsTaken == stepsToTake - 1:
       # isFirstLast = True
       speed_control(1, SPEED[1])
-      speed_control(5, SPEED[2])
+      speed_control(5, SPEED[1])
       speed_control(7, SPEED[1])
-      speed_control(11, SPEED[2])
+      speed_control(11, SPEED[1])
     if nextIsRight:
       rightStep()
       nextIsRight = not nextIsRight
