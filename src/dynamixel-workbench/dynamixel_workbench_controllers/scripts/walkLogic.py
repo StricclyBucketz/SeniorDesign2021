@@ -23,15 +23,13 @@ from functions import speed_control, position_control
 DELAY = 0.225
 TOLERANCE = 10 # %tolerance = TOLERANCE / 1023 (In this case ~0.3%)
 BASE_MOTOR_SPEED = 256 # Sets the speed for the servo moving the farthest in a state change.
-FIVETWELVE = np.array([512,512,512])
-R_NEUTRAL = np.array([612,312,412])
-L_NEUTRAL = np.array([412,712,612])
-R_FORWARD = np.array([512,412,362])
-L_DOWN = np.array([387,712,637])
-R_DOWN = np.array([637,312,387])
-L_FORWARD = np.array([512,612,662])
-R_SPEED = np.array([BASE_MOTOR_SPEED, BASE_MOTOR_SPEED, math.ceil(BASE_MOTOR_SPEED / 2), math.ceil(BASE_MOTOR_SPEED / 4), BASE_MOTOR_SPEED, math.ceil(BASE_MOTOR_SPEED / 4)])
-L_SPEED = np.array([math.ceil(BASE_MOTOR_SPEED / 4), BASE_MOTOR_SPEED, math.ceil(BASE_MOTOR_SPEED / 4), BASE_MOTOR_SPEED, BASE_MOTOR_SPEED, math.ceil(BASE_MOTOR_SPEED / 2)])
+STATIC = np.array([512,312,712])    # Default for not {2,3,4,8,9,10}, constant for 3, constant for 9
+TWO_POS = np.array([622,572])       # Default for servo 2, its extended state
+FOUR_POS = np.array([412,362])      # Default for servo 4, its extended state
+EIGHT_POS = np.array([402,452])     # Default for servo 8, its extended state
+TEN_POS = np.array([612,662])       # Defulat for servo 10, its extended state
+FEETHIPS = np.array([487,537])      # When not 512, both hips are one, both feet are other
+SPEED = np.array([BASE_MOTOR_SPEED, math.ceil(BASE_MOTOR_SPEED / 2)]) # IF first/last step: {2,4,8,10},{1,5,7,11} ELSE: {all}, {}
 
 targets = np.zeros(6)
 
@@ -92,76 +90,75 @@ def spinWhileMoving():
   posSub = rospy.Subscriber("dynamixel_workbench/dynamixel_state", msg.DynamixelStateList, motor_callback)
 
 def leftStep():
-  indices = np.array([2,3,4,8,9,10])
-  speed_control(2, L_SPEED[0])
-  speed_control(3, L_SPEED[1])
-  speed_control(4, L_SPEED[2])
-  speed_control(8, L_SPEED[3])
-  speed_control(9, L_SPEED[4])
-  speed_control(10, L_SPEED[5])
+  indices = np.array([1,5,7,11,8,10])
 
-  targets = np.concatenate((R_DOWN, L_FORWARD), axis = None)
-  position_control(2, R_DOWN[0])
-  position_control(3, R_DOWN[1])
-  position_control(4, R_DOWN[2])
-  position_control(8, L_FORWARD[0])
-  position_control(9, L_FORWARD[1])
-  position_control(10, L_FORWARD[2])
-  time.sleep(DELAY)
-  # spinWhileMoving()
+  targets = np.array(FEETHIPS[0],FEETHIPS[1],FEETHIPS[0],FEETHIPS[1],EIGHT_POS[1],TEN_POS[1])
+  position_control(1, FEETHIPS[0])
+  position_control(5, FEETHIPS[1])
+  position_control(7, FEETHIPS[0])
+  position_control(11, FEETHIPS[1])
+  position_control(2, EIGHT_POS[1])
+  position_control(4, TEN_POS[1])
+  spinWhileMoving()
 
-  targets = np.concatenate((R_NEUTRAL, L_FORWARD), axis = None)
-  position_control(2, R_NEUTRAL[0])
-  position_control(3, R_NEUTRAL[1])
-  position_control(4, R_NEUTRAL[2])
-  time.sleep(DELAY)
-  # spinWhileMoving()
-
-  targets = np.concatenate((R_NEUTRAL, L_NEUTRAL), axis = None)
-  position_control(8, L_NEUTRAL[0])
-  position_control(9, L_NEUTRAL[1])
-  position_control(10, L_NEUTRAL[2])
-  time.sleep(DELAY)
-  # spinWhileMoving()
+  targets = np.array(FEETHIPS[1],FEETHIPS[0],FEETHIPS[1],FEETHIPS[0],EIGHT_POS[1],TEN_POS[1])
+  position_control(1, FEETHIPS[1])
+  position_control(5, FEETHIPS[0])
+  position_control(7, FEETHIPS[1])
+  position_control(11, FEETHIPS[0])
+  position_control(2, EIGHT_POS[0])
+  position_control(4, TEN_POS[0])
+  spinWhileMoving()
 
 
 def rightStep():
-  indices = np.array([2,3,4,8,9,10])
-  speed_control(2, R_SPEED[0])
-  speed_control(3, R_SPEED[1])
-  speed_control(4, R_SPEED[2])
-  speed_control(8, R_SPEED[3])
-  speed_control(9, R_SPEED[4])
-  speed_control(10, R_SPEED[5])
+  indices = np.array([1,5,7,11,2,4])
 
-  targets = np.concatenate((R_FORWARD, L_DOWN), axis = None)
-  position_control(2, R_FORWARD[0])
-  position_control(3, R_FORWARD[1])
-  position_control(4, R_FORWARD[2])
-  position_control(8, L_DOWN[0])
-  position_control(9, L_DOWN[1])
-  position_control(10, L_DOWN[2])
-  time.sleep(DELAY)
-  # spinWhileMoving()
+  targets = np.array(FEETHIPS[1],FEETHIPS[0],FEETHIPS[1],FEETHIPS[0],TWO_POS[1],FOUR_POS[1])
+  position_control(1, FEETHIPS[1])
+  position_control(5, FEETHIPS[0])
+  position_control(7, FEETHIPS[1])
+  position_control(11, FEETHIPS[0])
+  position_control(2, TWO_POS[1])
+  position_control(4, FOUR_POS[1])
+  spinWhileMoving()
 
-  targets = np.concatenate((R_FORWARD, L_NEUTRAL), axis = None)
-  position_control(8, L_NEUTRAL[0])
-  position_control(9, L_NEUTRAL[1])
-  position_control(10, L_NEUTRAL[2])
-  time.sleep(DELAY)
-  # spinWhileMoving()
-
-  targets = np.concatenate((R_NEUTRAL, L_NEUTRAL), axis = None)
-  position_control(2, R_NEUTRAL[0])
-  position_control(3, R_NEUTRAL[1])
-  position_control(4, R_NEUTRAL[2])
-  time.sleep(DELAY)
-  # spinWhileMoving()
+  targets = np.array(FEETHIPS[0],FEETHIPS[1],FEETHIPS[0],FEETHIPS[1],TWO_POS[0],FOUR_POS[0])
+  position_control(1, FEETHIPS[0])
+  position_control(5, FEETHIPS[1])
+  position_control(7, FEETHIPS[0])
+  position_control(11, FEETHIPS[1])
+  position_control(2, TWO_POS[0])
+  position_control(4, FOUR_POS[0])
+  spinWhileMoving()
 
 def walkLogic(stepsToTake):
   stepsTaken = 0
   nextIsRight = True
+  # isFirstLast = True
   while stepsTaken < stepsToTake:
+    if stepsTaken == 1:
+      # isFirstLast = False
+      speed_control(1, SPEED[0])
+      speed_control(5, SPEED[0])
+      speed_control(7, SPEED[0])
+      speed_control(11, SPEED[0])
+    if stepsTaken == 0:
+      # isFirstLast = True
+      speed_control(1, SPEED[1])
+      speed_control(5, SPEED[1])
+      speed_control(7, SPEED[1])
+      speed_control(11, SPEED[1])
+      speed_control(2, SPEED[0])
+      speed_control(4, SPEED[0])
+      speed_control(8, SPEED[0])
+      speed_control(10, SPEED[0])
+    elif stepsTaken == stepsToTake - 1:
+      # isFirstLast = True
+      speed_control(1, SPEED[1])
+      speed_control(5, SPEED[1])
+      speed_control(7, SPEED[1])
+      speed_control(11, SPEED[1])
     if nextIsRight:
       rightStep()
       nextIsRight = not nextIsRight
@@ -172,17 +169,17 @@ def walkLogic(stepsToTake):
 
 if __name__ == "__main__":
 
-  position_control(1, FIVETWELVE[0])
-  position_control(2, R_NEUTRAL[0])
-  position_control(3, R_NEUTRAL[1])
-  position_control(4, R_NEUTRAL[2])
-  position_control(5, FIVETWELVE[0])
-  position_control(6, FIVETWELVE[0])
-  position_control(7, FIVETWELVE[0])
-  position_control(8, L_NEUTRAL[0])
-  position_control(9, L_NEUTRAL[1])
-  position_control(10, L_NEUTRAL[2])
-  position_control(11, FIVETWELVE[0])
-  position_control(12, FIVETWELVE[0])
+  position_control(1, STATIC[0])
+  position_control(2, TWO_POS[0])
+  position_control(3, STATIC[1])
+  position_control(4, FOUR_POS[1])
+  position_control(5, STATIC[0])
+  position_control(6, STATIC[0])
+  position_control(7, STATIC[0])
+  position_control(8, EIGHT_POS[0])
+  position_control(9, STATIC[2])
+  position_control(10, TEN_POS[1])
+  position_control(11, STATIC[0])
+  position_control(12, STATIC[0])
   time.sleep(DELAY)
   walkLogic(3) # TODO make this user input
