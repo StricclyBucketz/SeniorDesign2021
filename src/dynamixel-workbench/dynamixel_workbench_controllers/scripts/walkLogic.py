@@ -21,12 +21,12 @@ from sensor_msgs.msg import Imu
 from functions import speed_control, position_control
 
 class PosSpeed(Enum):
-  fullTwist = int(0)
-  fourTen = int(1)
-  twoEight = int(2)
-  threeNineHalfTwist = int(3)
-  fullFeetHips = int(4)
-  halfFeetHips = int(5)
+  fullTwist = 0
+  fourTen = 1
+  twoEight = 2
+  threeNineHalfTwist = 3
+  fullFeetHips = 4
+  halfFeetHips = 5
 
 DELAY = 0.225
 TOLERANCE = 10 # %tolerance = TOLERANCE / 1023 (In this case ~0.3%)
