@@ -77,7 +77,7 @@ class imu_read:
 
 def motor_callback(motorSub):
 
-  rate = rospy.Rate(10)
+  #rate = rospy.Rate(10)
   moving = True
   while moving:
     i = 0
