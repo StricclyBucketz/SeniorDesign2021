@@ -128,7 +128,7 @@ def leftStep():
   targets = np.array([FEETHIPS[1],FEETHIPS[0],FEETHIPS[1],FEETHIPS[0],EIGHT_POS[1],TEN_POS[1]])
   position_control(1, FEETHIPS[1])
   position_control(5, FEETHIPS[0])
-  position_control(7, FEETHIPS[0])
+  position_control(7, FEETHIPS[1])
   position_control(11, FEETHIPS[0])
   position_control(8, EIGHT_POS[0])
   position_control(10, TEN_POS[0])
@@ -198,6 +198,7 @@ def walkLogic(stepsToTake):
   position_control(1, STATIC[0])
   position_control(5, STATIC[0])
   position_control(6, STATIC[0])
+  position_control(7, STATIC[0])
   position_control(11, STATIC[0])
 
 if __name__ == "__main__":
