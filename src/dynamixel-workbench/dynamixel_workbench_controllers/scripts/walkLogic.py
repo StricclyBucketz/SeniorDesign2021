@@ -33,7 +33,7 @@ EIGHT_POS = np.array([377,407])     # Default for servo 8, its extended state
 # TEN_POS = np.array([612,662])       # Default for servo 10, its extended state
 TEN_POS = np.array([637,737])       # Default for servo 10, its extended state
 # FEETHIPS = np.array([487,537])      # When not 512, both hips are one, both feet are other
-FEETHIPS = np.array([500,525])      # When not 512, both hips are one, both feet are other
+FEETHIPS = np.array([492,532])      # When not 512, both hips are one, both feet are other
 SPEED = np.array([BASE_MOTOR_SPEED, math.ceil(BASE_MOTOR_SPEED / 2)]) # IF first/last step: {2,4,8,10},{1,5,7,11} ELSE: {all}, {}
 
 targets = np.zeros(6)
