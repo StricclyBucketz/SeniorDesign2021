@@ -113,6 +113,7 @@ def leftStep():
   position_control(5, FEETHIPS[1])
   position_control(7, FEETHIPS[0])
   position_control(11, FEETHIPS[1])
+  time.sleep(DELAY)
   position_control(8, EIGHT_POS[1])
   position_control(10, TEN_POS[1])
   #spinWhileMoving()
