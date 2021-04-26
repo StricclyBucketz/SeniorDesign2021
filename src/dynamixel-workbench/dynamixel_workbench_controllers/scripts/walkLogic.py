@@ -207,6 +207,8 @@ def walkLogic(stepsToTake):
       speed_control(4, SPEED[PosSpeed.fourTen])
       speed_control(8, SPEED[PosSpeed.twoEight])
       speed_control(10, SPEED[PosSpeed.fourTen])
+      speed_control(3, SPEED[PosSpeed.threeNineHalfTwist])
+      speed_control(9, SPEED[PosSpeed.threeNineHalfTwist])
     elif stepsTaken == stepsToTake - 1:
       # isFirstLast = True
       speed_control(1, SPEED[PosSpeed.halfFeetHips])
