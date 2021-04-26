@@ -116,7 +116,8 @@ def leftStep():
   position_control(2, EIGHT_POS[1])
   position_control(4, TEN_POS[1])
   rospy.loginfo("Entering spin lock")
-  spinWhileMoving()
+  #spinWhileMoving()
+  time.sleep(DELAY)
 
   targets = np.array([FEETHIPS[1],FEETHIPS[0],FEETHIPS[1],FEETHIPS[0],EIGHT_POS[1],TEN_POS[1]])
   position_control(1, FEETHIPS[1])
@@ -125,7 +126,8 @@ def leftStep():
   position_control(11, FEETHIPS[0])
   position_control(2, EIGHT_POS[0])
   position_control(4, TEN_POS[0])
-  spinWhileMoving()
+  #spinWhileMoving()
+  time.sleep(DELAY)
 
 
 def rightStep():
@@ -138,7 +140,8 @@ def rightStep():
   position_control(11, FEETHIPS[0])
   position_control(2, TWO_POS[1])
   position_control(4, FOUR_POS[1])
-  spinWhileMoving()
+  #spinWhileMoving()
+  time.sleep(DELAY)
 
   targets = np.array([FEETHIPS[0],FEETHIPS[1],FEETHIPS[0],FEETHIPS[1],TWO_POS[0],FOUR_POS[0]])
   position_control(1, FEETHIPS[0])
@@ -147,7 +150,8 @@ def rightStep():
   position_control(11, FEETHIPS[1])
   position_control(2, TWO_POS[0])
   position_control(4, FOUR_POS[0])
-  spinWhileMoving()
+  #spinWhileMoving()
+  time.sleep(DELAY)
 
 def walkLogic(stepsToTake):
   stepsTaken = 0
