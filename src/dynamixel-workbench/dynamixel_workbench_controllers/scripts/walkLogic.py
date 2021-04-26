@@ -26,12 +26,12 @@ BASE_MOTOR_SPEED = 128 # Sets the speed for the servo moving the farthest in a s
 STATIC = np.array([512,262,762])    # Default for not {2,3,4,8,9,10}, constant for 3, constant for 9
 # TWO_POS = np.array([622,572])       # Default for servo 2, its extended state
 TWO_POS = np.array([647,577])       # Default for servo 2, its extended state
-THREE_POS = np.array([254,270])
+THREE_POS = np.array([237,287])
 # FOUR_POS = np.array([412,362])      # Default for servo 4, its extended state
 FOUR_POS = np.array([367,277])      # Default for servo 4, its extended state
 # EIGHT_POS = np.array([402,452])     # Default for servo 8, its extended state
 EIGHT_POS = np.array([377,407])     # Default for servo 8, its extended state
-NINE_POS = np.array([754,770])
+NINE_POS = np.array([737,787])
 # TEN_POS = np.array([612,662])       # Default for servo 10, its extended state
 TEN_POS = np.array([647,737])       # Default for servo 10, its extended state
 # FEETHIPS = np.array([487,537])      # When not 512, both hips are one, both feet are other
@@ -125,7 +125,7 @@ def leftStep():
   time.sleep(DELAY)
   position_control(6, TWIST[0])
   position_control(12, TWIST[0])
-  position_control(9, NINE_POS[0])
+  position_control(9, NINE_POS[1])
   position_control(8, EIGHT_POS[1])
   position_control(10, TEN_POS[1])
   #spinWhileMoving()
@@ -156,7 +156,7 @@ def rightStep():
   position_control(6, TWIST[1])
   position_control(12, TWIST[1])
   position_control(2, TWO_POS[1])
-  position_control(3, THREE_POS[1])
+  position_control(3, THREE_POS[0])
   position_control(4, FOUR_POS[1])
   #spinWhileMoving()
   time.sleep(DELAY)
