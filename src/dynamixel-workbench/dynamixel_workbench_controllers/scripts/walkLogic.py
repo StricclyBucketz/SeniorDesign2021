@@ -99,6 +99,7 @@ def motor_callback(motorSub):
 
 def servoInfoIndexTest():
   # servoInfos read in via ROS
+
   rospy.init_node('motorSub', anonymous=True)
   motorSub = rospy.Subscriber("dynamixel_workbench/dynamixel_state", msg.DynamixelStateList, callback)
   for dynamixel_state in motorSub:
@@ -206,6 +207,7 @@ if __name__ == "__main__":
   position_control(4, FOUR_POS[0])
   position_control(5, STATIC[0])
   position_control(6, STATIC[0])
+  time.sleep(1)
   position_control(7, STATIC[0])
   position_control(8, EIGHT_POS[0])
   position_control(9, STATIC[2])
@@ -213,6 +215,6 @@ if __name__ == "__main__":
   position_control(11, STATIC[0])
   position_control(12, STATIC[0])
   time.sleep(3)
-  walkLogic(3) # TODO make this user input
+  #walkLogic(3) # TODO make this user input
   # rightStep()
   # leftStep()
