@@ -22,7 +22,7 @@ from functions import speed_control, position_control
 
 DELAY = 0.225
 TOLERANCE = 10 # %tolerance = TOLERANCE / 1023 (In this case ~0.3%)
-BASE_MOTOR_SPEED = 128 # Sets the speed for the servo moving the farthest in a state change.
+BASE_MOTOR_SPEED = 64 # Sets the speed for the servo moving the farthest in a state change.
 STATIC = np.array([512,312,712])    # Default for not {2,3,4,8,9,10}, constant for 3, constant for 9
 TWO_POS = np.array([622,572])       # Default for servo 2, its extended state
 # FOUR_POS = np.array([412,362])      # Default for servo 4, its extended state
@@ -210,6 +210,6 @@ if __name__ == "__main__":
   position_control(11, STATIC[0])
   position_control(12, STATIC[0])
   time.sleep(3)
-  #walkLogic(3) # TODO make this user input
-  rightStep()
-  leftStep()
+  walkLogic(3) # TODO make this user input
+  # rightStep()
+  # leftStep()
