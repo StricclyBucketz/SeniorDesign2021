@@ -169,9 +169,9 @@ def walkLogic(stepsToTake):
     if stepsTaken == 1:
       # isFirstLast = False
       speed_control(1, SPEED[0])
-      speed_control(5, SPEED[0])
+      speed_control(5, SPEED[1])
       speed_control(7, SPEED[0])
-      speed_control(11, SPEED[0])
+      speed_control(11, SPEED[1])
     if stepsTaken == 0:
       # isFirstLast = True
       speed_control(1, SPEED[1])
