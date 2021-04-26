@@ -130,7 +130,7 @@ def leftStep():
 def rightStep():
   indices = np.array([1,5,7,11,2,4])
 
-  targets = np.array(FEETHIPS[1],FEETHIPS[0],FEETHIPS[1],FEETHIPS[0],TWO_POS[1],FOUR_POS[1])
+  targets = np.array([FEETHIPS[1],FEETHIPS[0],FEETHIPS[1],FEETHIPS[0],TWO_POS[1],FOUR_POS[1]])
   position_control(1, FEETHIPS[1])
   position_control(5, FEETHIPS[0])
   position_control(7, FEETHIPS[1])
