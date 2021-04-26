@@ -155,6 +155,7 @@ def rightStep():
   position_control(5, FEETHIPS[1])
   position_control(7, FEETHIPS[0])
   position_control(11, FEETHIPS[1])
+  time.sleep(DELAY)
   position_control(2, TWO_POS[0])
   position_control(4, FOUR_POS[0])
   #spinWhileMoving()
