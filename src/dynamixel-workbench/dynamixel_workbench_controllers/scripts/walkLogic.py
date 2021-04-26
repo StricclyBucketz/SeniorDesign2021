@@ -137,7 +137,7 @@ def leftStep():
   position_control(7, FEETHIPS[1])
   position_control(11, FEETHIPS[0])
   time.sleep(DELAY)
-  position_control(9, STATIC[0])
+  position_control(9, STATIC[2])
   position_control(8, EIGHT_POS[0])
   position_control(10, TEN_POS[0])
   #spinWhileMoving()
@@ -168,7 +168,7 @@ def rightStep():
   position_control(11, FEETHIPS[1])
   time.sleep(DELAY)
   position_control(2, TWO_POS[0])
-  position_control(3, STATIC[0])
+  position_control(3, STATIC[1])
   position_control(4, FOUR_POS[0])
   #spinWhileMoving()
   time.sleep(DELAY)
@@ -238,6 +238,6 @@ if __name__ == "__main__":
   position_control(17, 432)
   position_control(18, 582)
   time.sleep(1)
-  #walkLogic(3) # TODO make this user input
+  walkLogic(5) # TODO make this user input
   # rightStep()
   # leftStep()
