@@ -210,7 +210,7 @@ if __name__ == "__main__":
   position_control(13, 362)
   position_control(14, 592)
   position_control(15, 442)
-  time.sleep(1)
+  time.sleep(3)
   position_control(7, STATIC[0])
   position_control(8, EIGHT_POS[0])
   position_control(9, STATIC[2])
