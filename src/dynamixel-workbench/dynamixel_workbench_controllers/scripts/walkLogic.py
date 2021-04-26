@@ -24,12 +24,15 @@ DELAY = 0.225
 TOLERANCE = 10 # %tolerance = TOLERANCE / 1023 (In this case ~0.3%)
 BASE_MOTOR_SPEED = 128 # Sets the speed for the servo moving the farthest in a state change.
 STATIC = np.array([512,312,712])    # Default for not {2,3,4,8,9,10}, constant for 3, constant for 9
-TWO_POS = np.array([622,572])       # Default for servo 2, its extended state
+# TWO_POS = np.array([622,572])       # Default for servo 2, its extended state
+TWO_POS = np.array([647,597])       # Default for servo 2, its extended state
 # FOUR_POS = np.array([412,362])      # Default for servo 4, its extended state
-FOUR_POS = np.array([402,352])      # Default for servo 4, its extended state
-EIGHT_POS = np.array([402,452])     # Default for servo 8, its extended state
+FOUR_POS = np.array([377,327])      # Default for servo 4, its extended state
+# EIGHT_POS = np.array([402,452])     # Default for servo 8, its extended state
+EIGHT_POS = np.array([427,477])     # Default for servo 8, its extended state
 # TEN_POS = np.array([612,662])       # Default for servo 10, its extended state
-TEN_POS = np.array([622,672])       # Default for servo 10, its extended state
+TEN_POS = np.array([647,697])       # Default for servo 10, its extended state
+# FEETHIPS = np.array([487,537])      # When not 512, both hips are one, both feet are other
 FEETHIPS = np.array([487,537])      # When not 512, both hips are one, both feet are other
 SPEED = np.array([BASE_MOTOR_SPEED, math.ceil(BASE_MOTOR_SPEED / 2)]) # IF first/last step: {2,4,8,10},{1,5,7,11} ELSE: {all}, {}
 
