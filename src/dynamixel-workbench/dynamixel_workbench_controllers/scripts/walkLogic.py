@@ -209,7 +209,7 @@ if __name__ == "__main__":
   position_control(6, STATIC[0])
   position_control(13, 512)
   position_control(14, 592)
-  position_control(15, 522)
+  position_control(15, 542)
   time.sleep(1)
   position_control(7, STATIC[0])
   position_control(8, EIGHT_POS[0])
@@ -219,7 +219,7 @@ if __name__ == "__main__":
   position_control(12, STATIC[0])
   position_control(16, 512)
   position_control(17, 442)
-  position_control(18, 522)
+  position_control(18, 482)
   time.sleep(3)
   #walkLogic(3) # TODO make this user input
   # rightStep()
