@@ -27,7 +27,7 @@ STATIC = np.array([512,312,712])    # Default for not {2,3,4,8,9,10}, constant f
 TWO_POS = np.array([622,572])       # Default for servo 2, its extended state
 FOUR_POS = np.array([412,362])      # Default for servo 4, its extended state
 EIGHT_POS = np.array([402,452])     # Default for servo 8, its extended state
-TEN_POS = np.array([612,662])       # Defulat for servo 10, its extended state
+TEN_POS = np.array([612,662])       # Default for servo 10, its extended state
 FEETHIPS = np.array([487,537])      # When not 512, both hips are one, both feet are other
 SPEED = np.array([BASE_MOTOR_SPEED, math.ceil(BASE_MOTOR_SPEED / 2)]) # IF first/last step: {2,4,8,10},{1,5,7,11} ELSE: {all}, {}
 
@@ -113,9 +113,8 @@ def leftStep():
   position_control(5, FEETHIPS[1])
   position_control(7, FEETHIPS[0])
   position_control(11, FEETHIPS[1])
-  position_control(2, EIGHT_POS[1])
-  position_control(4, TEN_POS[1])
-  rospy.loginfo("Entering spin lock")
+  position_control(8, EIGHT_POS[1])
+  position_control(10, TEN_POS[1])
   #spinWhileMoving()
   time.sleep(DELAY)
 
@@ -124,8 +123,8 @@ def leftStep():
   position_control(5, FEETHIPS[0])
   position_control(7, FEETHIPS[1])
   position_control(11, FEETHIPS[0])
-  position_control(2, EIGHT_POS[0])
-  position_control(4, TEN_POS[0])
+  position_control(8, EIGHT_POS[0])
+  position_control(10, TEN_POS[0])
   #spinWhileMoving()
   time.sleep(DELAY)
 
