@@ -182,6 +182,10 @@ def walkLogic(stepsToTake):
       leftStep()
       nextIsRight = not nextIsRight
     stepsTaken += 1
+  position_control(1, STATIC[0])
+  position_control(5, STATIC[0])
+  position_control(6, STATIC[0])
+  position_control(11, STATIC[0])
 
 if __name__ == "__main__":
 
