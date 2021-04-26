@@ -208,6 +208,7 @@ def walkLogic(stepsToTake):
   position_control(6, STATIC[0])
   position_control(7, STATIC[0])
   position_control(11, STATIC[0])
+  position_control(12, STATIC[0])
 
 if __name__ == "__main__":
 
