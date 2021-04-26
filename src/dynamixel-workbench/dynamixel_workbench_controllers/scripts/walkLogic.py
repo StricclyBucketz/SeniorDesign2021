@@ -22,7 +22,7 @@ from functions import speed_control, position_control
 
 DELAY = 0.225
 TOLERANCE = 10 # %tolerance = TOLERANCE / 1023 (In this case ~0.3%)
-BASE_MOTOR_SPEED = 64 # Sets the speed for the servo moving the farthest in a state change.
+BASE_MOTOR_SPEED = 128 # Sets the speed for the servo moving the farthest in a state change.
 STATIC = np.array([512,262,762])    # Default for not {2,3,4,8,9,10}, constant for 3, constant for 9
 # TWO_POS = np.array([622,572])       # Default for servo 2, its extended state
 TWO_POS = np.array([647,577])       # Default for servo 2, its extended state
@@ -35,7 +35,7 @@ TEN_POS = np.array([637,737])       # Default for servo 10, its extended state
 # FEETHIPS = np.array([487,537])      # When not 512, both hips are one, both feet are other
 FEETHIPS = np.array([492,532])      # When not 512, both hips are one, both feet are other
 TWIST = np.array([462, 562])
-SPEED = np.array([BASE_MOTOR_SPEED, math.ceil(BASE_MOTOR_SPEED / 2)]) # IF first/last step: {2,4,8,10},{1,5,7,11} ELSE: {all}, {}
+SPEED = np.array([BASE_MOTOR_SPEED, math.ceil(BASE_MOTOR_SPEED / 2), math.ceil(BASE_MOTOR_SPEED / 4)]) # IF first/last step: {2,4,8,10},{1,5,7,11} ELSE: {all}, {}
 
 targets = np.zeros(6)
 
@@ -170,22 +170,22 @@ def rightStep():
 def walkLogic(stepsToTake):
   stepsTaken = 0
   nextIsRight = True
-  speed_control(6, BASE_MOTOR_SPEED)
-  speed_control(12, BASE_MOTOR_SPEED)
+  speed_control(6, SPEED[1])
+  speed_control(12, SPEED[1])
   # isFirstLast = True
   while stepsTaken < stepsToTake:
     if stepsTaken == 1:
       # isFirstLast = False
       speed_control(1, SPEED[0])
-      speed_control(5, SPEED[1])
+      speed_control(5, SPEED[2])
       speed_control(7, SPEED[0])
-      speed_control(11, SPEED[1])
+      speed_control(11, SPEED[2])
     if stepsTaken == 0:
       # isFirstLast = True
       speed_control(1, SPEED[1])
-      speed_control(5, SPEED[1])
+      speed_control(5, SPEED[2])
       speed_control(7, SPEED[1])
-      speed_control(11, SPEED[1])
+      speed_control(11, SPEED[2])
       speed_control(2, SPEED[0])
       speed_control(4, SPEED[0])
       speed_control(8, SPEED[0])
@@ -193,9 +193,9 @@ def walkLogic(stepsToTake):
     elif stepsTaken == stepsToTake - 1:
       # isFirstLast = True
       speed_control(1, SPEED[1])
-      speed_control(5, SPEED[1])
+      speed_control(5, SPEED[2])
       speed_control(7, SPEED[1])
-      speed_control(11, SPEED[1])
+      speed_control(11, SPEED[2])
     if nextIsRight:
       rightStep()
       nextIsRight = not nextIsRight
