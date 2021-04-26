@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import rospy
-from enum import Enum
+from enum import IntEnum
 import sys
 import numpy as np
 import math
@@ -20,7 +20,7 @@ from sensor_msgs.msg import Imu
 
 from functions import speed_control, position_control
 
-class PosSpeed(Enum):
+class PosSpeed(IntEnum):
   fullTwist = 0
   fourTen = 1
   twoEight = 2
@@ -197,8 +197,8 @@ def walkLogic(stepsToTake):
       speed_control(12, SPEED[PosSpeed.fullTwist])
     if stepsTaken == 0:
       # isFirstLast = True
-      speed_control(1, SPEED[5])
-      speed_control(5, SPEED[int(PosSpeed.halfFeetHips)])
+      speed_control(1, SPEED[PosSpeed.halfFeetHips])
+      speed_control(5, SPEED[PosSpeed.halfFeetHips])
       speed_control(7, SPEED[PosSpeed.halfFeetHips])
       speed_control(11, SPEED[PosSpeed.halfFeetHips])
       speed_control(6, SPEED[PosSpeed.threeNineHalfTwist])
