@@ -61,6 +61,22 @@ indices = np.zeros(6)
 #     for delta in deltas:
 #       delta = math.ceil(BASE_MOTOR_SPEED * delta/maxDelta)
 
+class imu_read:
+
+  def __init__(self):
+    self.roll = 0
+    self.pitch = 0
+    self.yaw = 0
+    rospy.init_node('imu_Node', anonymous=True)
+    sub = rospy.Subscriber("navx_micro/euler", Vector3Stamped, imu_printer)
+
+  def callback(self, data):
+      # loop through each servo, recording (in array) difference between each current position and target position (delta)
+    # find greatestDelta
+    self.pitch = data.vector.x
+    self.roll = data.vector.y
+    self.yaw = data.vector.z
+
 def motor_callback(motorSub):
 
   rate = rospy.Rate(10)
