@@ -238,6 +238,6 @@ if __name__ == "__main__":
   position_control(17, 432)
   position_control(18, 582)
   time.sleep(1)
-  walkLogic(3) # TODO make this user input
+  #walkLogic(3) # TODO make this user input
   # rightStep()
   # leftStep()
