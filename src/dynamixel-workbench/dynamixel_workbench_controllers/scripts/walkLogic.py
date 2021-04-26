@@ -20,24 +20,33 @@ from sensor_msgs.msg import Imu
 
 from functions import speed_control, position_control
 
+class PosSpeed(Enum):
+  fullTwist = 0
+  fourTen = 1
+  twoEight = 2
+  threeNineHalfTwist = 3
+  fullFeetHips = 4
+  halfFeetHips = 5
+
 DELAY = 0.225
 TOLERANCE = 10 # %tolerance = TOLERANCE / 1023 (In this case ~0.3%)
 BASE_MOTOR_SPEED = 128 # Sets the speed for the servo moving the farthest in a state change.
-STATIC = np.array([512,262,762])    # Default for not {2,3,4,8,9,10}, constant for 3, constant for 9
+STATIC = np.array([512])    # Default for not {2,3,4,8,9,10}
 # TWO_POS = np.array([622,572])       # Default for servo 2, its extended state
 TWO_POS = np.array([647,577])       # Default for servo 2, its extended state
-THREE_POS = np.array([237,287])
+THREE_POS = np.array([262,237])
 # FOUR_POS = np.array([412,362])      # Default for servo 4, its extended state
 FOUR_POS = np.array([367,277])      # Default for servo 4, its extended state
 # EIGHT_POS = np.array([402,452])     # Default for servo 8, its extended state
-EIGHT_POS = np.array([377,407])     # Default for servo 8, its extended state
-NINE_POS = np.array([737,787])
+EIGHT_POS = np.array([377,447])     # Default for servo 8, its extended state
+NINE_POS = np.array([762,787])
 # TEN_POS = np.array([612,662])       # Default for servo 10, its extended state
 TEN_POS = np.array([647,737])       # Default for servo 10, its extended state
 # FEETHIPS = np.array([487,537])      # When not 512, both hips are one, both feet are other
 FEETHIPS = np.array([492,532])      # When not 512, both hips are one, both feet are other
 TWIST = np.array([462, 562])
-SPEED = np.array([BASE_MOTOR_SPEED, math.ceil(BASE_MOTOR_SPEED / 2), math.ceil(BASE_MOTOR_SPEED / 4)]) # IF first/last step: {2,4,8,10},{1,5,7,11} ELSE: {all}, {}
+# SPEED = np.array([BASE_MOTOR_SPEED, math.ceil(BASE_MOTOR_SPEED / 2), math.ceil(BASE_MOTOR_SPEED / 4)]) # IF first/last step: {2,4,8,10},{1,5,7,11} ELSE: {all}, {}
+SPEED = np.array([BASE_MOTOR_SPEED, math.ceil(0.9*BASE_MOTOR_SPEED), math.ceil(0.7*BASE_MOTOR_SPEED), math.ceil(0.5*BASE_MOTOR_SPEED), math.ceil(0.4*BASE_MOTOR_SPEED), math.ceil(0.2*BASE_MOTOR_SPEED)]) # use PosSpeed
 
 targets = np.zeros(6)
 
@@ -137,7 +146,7 @@ def leftStep():
   position_control(7, FEETHIPS[1])
   position_control(11, FEETHIPS[0])
   time.sleep(DELAY)
-  position_control(9, STATIC[2])
+  position_control(9, NINE_POS[0])
   position_control(8, EIGHT_POS[0])
   position_control(10, TEN_POS[0])
   #spinWhileMoving()
@@ -156,7 +165,7 @@ def rightStep():
   position_control(6, TWIST[1])
   position_control(12, TWIST[1])
   position_control(2, TWO_POS[1])
-  position_control(3, THREE_POS[0])
+  position_control(3, THREE_POS[1])
   position_control(4, FOUR_POS[1])
   #spinWhileMoving()
   time.sleep(DELAY)
@@ -168,7 +177,7 @@ def rightStep():
   position_control(11, FEETHIPS[1])
   time.sleep(DELAY)
   position_control(2, TWO_POS[0])
-  position_control(3, STATIC[1])
+  position_control(3, THREE_POS[0])
   position_control(4, FOUR_POS[0])
   #spinWhileMoving()
   time.sleep(DELAY)
@@ -176,32 +185,36 @@ def rightStep():
 def walkLogic(stepsToTake):
   stepsTaken = 0
   nextIsRight = True
-  speed_control(6, SPEED[0])
-  speed_control(12, SPEED[0])
   # isFirstLast = True
   while stepsTaken < stepsToTake:
     if stepsTaken == 1:
       # isFirstLast = False
-      speed_control(1, SPEED[0])
-      speed_control(5, SPEED[1])
-      speed_control(7, SPEED[0])
-      speed_control(11, SPEED[1])
+      speed_control(1, SPEED[PosSpeed.fullFeetHips])
+      speed_control(5, SPEED[PosSpeed.fullFeetHips])
+      speed_control(7, SPEED[PosSpeed.fullFeetHips])
+      speed_control(11, SPEED[PosSpeed.fullFeetHips])
+      speed_control(6, SPEED[PosSpeed.fullTwist])
+      speed_control(12, SPEED[PosSpeed.fullTwist])
     if stepsTaken == 0:
       # isFirstLast = True
-      speed_control(1, SPEED[1])
-      speed_control(5, SPEED[1])
-      speed_control(7, SPEED[1])
-      speed_control(11, SPEED[1])
-      speed_control(2, SPEED[0])
-      speed_control(4, SPEED[0])
-      speed_control(8, SPEED[0])
-      speed_control(10, SPEED[0])
+      speed_control(1, SPEED[PosSpeed.halfFeetHips])
+      speed_control(5, SPEED[PosSpeed.halfFeetHips])
+      speed_control(7, SPEED[PosSpeed.halfFeetHips])
+      speed_control(11, SPEED[PosSpeed.halfFeetHips])
+      speed_control(6, SPEED[PosSpeed.threeNineHalfTwist])
+      speed_control(12, SPEED[PosSpeed.threeNineHalfTwist])
+      speed_control(2, SPEED[PosSpeed.twoEight])
+      speed_control(4, SPEED[PosSpeed.fourTen])
+      speed_control(8, SPEED[PosSpeed.twoEight])
+      speed_control(10, SPEED[PosSpeed.fourTen])
     elif stepsTaken == stepsToTake - 1:
       # isFirstLast = True
-      speed_control(1, SPEED[1])
-      speed_control(5, SPEED[1])
-      speed_control(7, SPEED[1])
-      speed_control(11, SPEED[1])
+      speed_control(1, SPEED[PosSpeed.halfFeetHips])
+      speed_control(5, SPEED[PosSpeed.halfFeetHips])
+      speed_control(7, SPEED[PosSpeed.halfFeetHips])
+      speed_control(11, SPEED[PosSpeed.halfFeetHips])
+      speed_control(6, SPEED[PosSpeed.threeNineHalfTwist])
+      speed_control(12, SPEED[PosSpeed.threeNineHalfTwist])
     if nextIsRight:
       rightStep()
       nextIsRight = not nextIsRight
@@ -220,7 +233,8 @@ if __name__ == "__main__":
 
   position_control(1, STATIC[0])
   position_control(2, TWO_POS[0])
-  position_control(3, STATIC[1])
+  position_control(3, THREE_POS[0])
+
   position_control(4, FOUR_POS[0])
   position_control(5, STATIC[0])
   position_control(6, STATIC[0])
@@ -230,7 +244,7 @@ if __name__ == "__main__":
   time.sleep(1)
   position_control(7, STATIC[0])
   position_control(8, EIGHT_POS[0])
-  position_control(9, STATIC[2])
+  position_control(9, NINE_POS[0])
   position_control(10, TEN_POS[0])
   position_control(11, STATIC[0])
   position_control(12, STATIC[0])
