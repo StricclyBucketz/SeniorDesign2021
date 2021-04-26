@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import rospy
-import enum
+from enum import Enum
 import sys
 import numpy as np
 import math
