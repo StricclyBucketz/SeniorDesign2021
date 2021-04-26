@@ -217,7 +217,7 @@ if __name__ == "__main__":
   position_control(10, TEN_POS[0])
   position_control(11, STATIC[0])
   position_control(12, STATIC[0])
-  position_control(16, 762)
+  position_control(16, 662)
   position_control(17, 432)
   position_control(18, 582)
   time.sleep(3)
