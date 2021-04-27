@@ -464,13 +464,13 @@ if __name__ == "__main__":
 
   set_speeds()
   walk_ready()
-  F_S_L()
-  F_S_L_MID()
-  F_M_R()
-  F_M_R_MID()
-  F_E_L()
-  F_E_L_MID()
-  walk_ready()
+  # F_S_L()
+  # F_S_L_MID()
+  # F_M_R()
+  # F_M_R_MID()
+  # F_E_L()
+  # F_E_L_MID()
+  # walk_ready()
 
   #walkLogic(5) # TODO make this user input
   # rightStep()
