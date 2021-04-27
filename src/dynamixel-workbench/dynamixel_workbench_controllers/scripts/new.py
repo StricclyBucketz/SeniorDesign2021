@@ -258,11 +258,11 @@ if __name__ == "__main__":
   position_control(2, 624)
   position_control(3, 285)
 
-  position_control(4, 508)
+  position_control(4, 369)
   position_control(5, 369)
   position_control(6, 512)
   position_control(13, 486)
-  position_control(14, 705)
+  position_control(14, 449)
   position_control(15, 553)
   #time.sleep(1)
   position_control(7, 515)
@@ -272,7 +272,7 @@ if __name__ == "__main__":
   position_control(11, 654)
   position_control(12, 512)
   position_control(16, 537)
-  position_control(17, 318)
+  position_control(17, 574)
   position_control(18, 470)
   time.sleep(1)
   #walkLogic(5) # TODO make this user input
