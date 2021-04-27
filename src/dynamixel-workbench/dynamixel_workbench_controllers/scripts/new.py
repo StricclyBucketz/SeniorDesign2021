@@ -291,7 +291,7 @@ def walk_ready():
   position_control(13, 512)
   position_control(14, 574)
   position_control(15, 470)
-  position_control(16, 537)
+  position_control(16, 512)
   position_control(17, 449)
   position_control(18, 553)
   time.sleep(1)
