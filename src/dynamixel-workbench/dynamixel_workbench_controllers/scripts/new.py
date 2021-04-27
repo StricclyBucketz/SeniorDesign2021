@@ -20,9 +20,9 @@ from sensor_msgs.msg import Imu
 
 from functions import speed_control, position_control
 
-DELAY = 0.150
+DELAY = 0.020
 TOLERANCE = 10 # %tolerance = TOLERANCE / 1023 (In this case ~0.3%)
-BASE_MOTOR_SPEED = 128 # Sets the speed for the servo moving the farthest in a state change.
+BASE_MOTOR_SPEED = 256 # Sets the speed for the servo moving the farthest in a state change.
 STATIC = np.array([512])    # Default for not {2,3,4,8,9,10}
 # TWO_POS = np.array([622,572])       # Default for servo 2, its extended state
 TWO_POS = np.array([647,577])       # Default for servo 2, its extended state
@@ -177,7 +177,7 @@ def F_S_L():
   position_control(16, 486)
   position_control(17, 449)
   position_control(18, 553)
-  time.sleep(0.093)
+  time.sleep(DELAY)
 
   #Substate 32.2
   position_control(1, 518)
@@ -191,7 +191,7 @@ def F_S_L():
   position_control(9, 860)
   position_control(10, 721)
   position_control(11, 525)
-  time.sleep(0.063)
+  time.sleep(DELAY)
 
   #Substate 32.3
   position_control(1, 522)
@@ -205,7 +205,7 @@ def F_S_L():
   position_control(9, 855)
   position_control(10, 719)
   position_control(11, 529)
-  time.sleep(0.078)
+  time.sleep(DELAY)
 
   #Substate 32.4
   position_control(1, 525)
@@ -219,7 +219,7 @@ def F_S_L():
   position_control(9, 849)
   position_control(10, 716)
   position_control(11, 533)
-  time.sleep(0.078)
+  time.sleep(DELAY)
 
   #Substate 32.5
   position_control(1, 528)
@@ -233,7 +233,7 @@ def F_S_L():
   position_control(9, 862)
   position_control(10, 722)
   position_control(11, 539)
-  time.sleep(0.078)
+  time.sleep(DELAY)
 
   #Substate 32.6
   position_control(1, 529)
@@ -247,7 +247,7 @@ def F_S_L():
   position_control(9, 889)
   position_control(10, 736)
   position_control(11, 548)
-  time.sleep(0.078)
+  time.sleep(DELAY)
 
   #Substate 32.7
   position_control(1, 530)
@@ -261,7 +261,7 @@ def F_S_L():
   position_control(9, 930)
   position_control(10, 771)
   position_control(11, 552)
-  time.sleep(0.096)
+  time.sleep(DELAY)
 
 #State 33
 def F_S_L_MID():
@@ -282,7 +282,7 @@ def F_S_L_MID():
   position_control(13, 535)
 
   position_control(16, 484)
-  time.sleep(0.078)
+  time.sleep(DELAY)
 
   #Substate 33.2
   position_control(1, 528)
@@ -300,7 +300,7 @@ def F_S_L_MID():
   position_control(13, 548)
 
   position_control(16, 497)
-  time.sleep(0.078)
+  time.sleep(DELAY)
 
   #Substate 33.3
   position_control(1, 525)
@@ -318,7 +318,7 @@ def F_S_L_MID():
   position_control(13, 560)
 
   position_control(16, 509)
-  time.sleep(0.078)
+  time.sleep(DELAY)
 
   #Substate 33.4
   position_control(1, 522)
@@ -336,7 +336,7 @@ def F_S_L_MID():
   position_control(13, 571)
 
   position_control(16, 520)
-  time.sleep(0.078)
+  time.sleep(DELAY)
 
   #Substate 33.5
   position_control(1, 518)
@@ -354,7 +354,7 @@ def F_S_L_MID():
   position_control(13, 580)
 
   position_control(16, 529)
-  time.sleep(0.078)
+  time.sleep(DELAY)
 
   #Substate 33.6
   position_control(1, 513)
@@ -372,7 +372,7 @@ def F_S_L_MID():
   position_control(13, 587)
 
   position_control(16, 536)
-  time.sleep(0.078)
+  time.sleep(DELAY)
 
 
   #Substate 33.7
@@ -391,7 +391,7 @@ def F_S_L_MID():
   position_control(13, 592)
 
   position_control(16, 541)
-  time.sleep(0.096)
+  time.sleep(DELAY)
 
 #State 34
 def F_S_R():
