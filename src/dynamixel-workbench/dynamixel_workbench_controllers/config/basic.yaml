@@ -7,8 +7,8 @@ right_foot:
   CW_Angle_Limit: 300
   CCW_Angle_Limit: 765
   Moving_Speed: 128
-  CW_Compliance_Slope: 20
-  CCW_Compliance_Slope: 20
+  CW_Compliance_Slope: 24
+  CCW_Compliance_Slope: 24
   CW_Compliance_Margin: 1
   CCW_Compliance_Margin: 1
 right_ankle:
@@ -17,8 +17,8 @@ right_ankle:
   CW_Angle_Limit: 412
   CCW_Angle_Limit: 737
   Moving_Speed: 128
-  CW_Compliance_Slope: 20
-  CCW_Compliance_Slope: 20
+  CW_Compliance_Slope: 24
+  CCW_Compliance_Slope: 24
   CW_Compliance_Margin: 1
   CCW_Compliance_Margin: 1
 right_tibia:
@@ -27,8 +27,8 @@ right_tibia:
   CCW_Angle_Limit: 612
   Return_Delay_Time: 0
   Moving_Speed: 128
-  CW_Compliance_Slope: 20
-  CCW_Compliance_Slope: 20
+  CW_Compliance_Slope: 24
+  CCW_Compliance_Slope: 24
   CW_Compliance_Margin: 1
   CCW_Compliance_Margin: 1
 right_knee:
@@ -37,32 +37,32 @@ right_knee:
   CCW_Angle_Limit: 612
   Return_Delay_Time: 0
   Moving_Speed: 128
-  CW_Compliance_Slope: 20
-  CCW_Compliance_Slope: 20
+  CW_Compliance_Slope: 24
+  CCW_Compliance_Slope: 24
   CW_Compliance_Margin: 1
   CCW_Compliance_Margin: 1
 right_hip:
   ID: 5
   Return_Delay_Time: 0
   Moving_Speed: 128
-  CW_Compliance_Slope: 20
-  CCW_Compliance_Slope: 20
+  CW_Compliance_Slope: 24
+  CCW_Compliance_Slope: 24
   CW_Compliance_Margin: 1
   CCW_Compliance_Margin: 1
 right_waist:
   ID: 6
   Return_Delay_Time: 0
   Moving_Speed: 128
-  CW_Compliance_Slope: 20
-  CCW_Compliance_Slope: 20
+  CW_Compliance_Slope: 24
+  CCW_Compliance_Slope: 24
   CW_Compliance_Margin: 1
   CCW_Compliance_Margin: 1
 left_foot:
   ID: 7
   Return_Delay_Time: 0
   Moving_Speed: 128
-  CW_Compliance_Slope: 20
-  CCW_Compliance_Slope: 20
+  CW_Compliance_Slope: 24
+  CCW_Compliance_Slope: 24
   CW_Compliance_Margin: 1
   CCW_Compliance_Margin: 1
 left_ankle:
@@ -71,8 +71,8 @@ left_ankle:
   CCW_Angle_Limit: 612
   Return_Delay_Time: 0
   Moving_Speed: 128
-  CW_Compliance_Slope: 20
-  CCW_Compliance_Slope: 20
+  CW_Compliance_Slope: 24
+  CCW_Compliance_Slope: 24
   CW_Compliance_Margin: 1
   CCW_Compliance_Margin: 1
 left_tibia:
@@ -81,8 +81,8 @@ left_tibia:
   CCW_Angle_Limit: 950
   Return_Delay_Time: 0
   Moving_Speed: 128
-  CW_Compliance_Slope: 20
-  CCW_Compliance_Slope: 20
+  CW_Compliance_Slope: 24
+  CCW_Compliance_Slope: 24
   CW_Compliance_Margin: 1
   CCW_Compliance_Margin: 1
 left_knee:
@@ -91,71 +91,71 @@ left_knee:
   CCW_Angle_Limit: 870
   Return_Delay_Time: 0
   Moving_Speed: 128
-  CW_Compliance_Slope: 20
-  CCW_Compliance_Slope: 20
+  CW_Compliance_Slope: 24
+  CCW_Compliance_Slope: 24
   CW_Compliance_Margin: 1
   CCW_Compliance_Margin: 1
 left_hip:
   ID: 11
   Return_Delay_Time: 0
   Moving_Speed: 128
-  CW_Compliance_Slope: 20
-  CCW_Compliance_Slope: 20
+  CW_Compliance_Slope: 24
+  CCW_Compliance_Slope: 24
   CW_Compliance_Margin: 1
   CCW_Compliance_Margin: 1
 left_waist:
   ID: 12
   Return_Delay_Time: 0
   Moving_Speed: 128
-  CW_Compliance_Slope: 20
-  CCW_Compliance_Slope: 20
+  CW_Compliance_Slope: 24
+  CCW_Compliance_Slope: 24
   CW_Compliance_Margin: 1
   CCW_Compliance_Margin: 1
 left_shoulder:
   ID: 13
   Return_Delay_Time: 0
   Moving_Speed: 128
-  CW_Compliance_Slope: 20
-  CCW_Compliance_Slope: 20
+  CW_Compliance_Slope: 24
+  CCW_Compliance_Slope: 24
   CW_Compliance_Margin: 1
   CCW_Compliance_Margin: 1
 left_elbow:
   ID: 14
   Return_Delay_Time: 0
   Moving_Speed: 128
-  CW_Compliance_Slope: 20
-  CCW_Compliance_Slope: 20
+  CW_Compliance_Slope: 24
+  CCW_Compliance_Slope: 24
   CW_Compliance_Margin: 1
   CCW_Compliance_Margin: 1
 left_wrist:
   ID: 15
   Return_Delay_Time: 0
   Moving_Speed: 128
-  CW_Compliance_Slope: 20
-  CCW_Compliance_Slope: 20
+  CW_Compliance_Slope: 24
+  CCW_Compliance_Slope: 24
   CW_Compliance_Margin: 1
   CCW_Compliance_Margin: 1
 right_shoulder:
   ID: 16
   Return_Delay_Time: 0
   Moving_Speed: 128
-  CW_Compliance_Slope: 20
-  CCW_Compliance_Slope: 20
+  CW_Compliance_Slope: 24
+  CCW_Compliance_Slope: 24
   CW_Compliance_Margin: 1
   CCW_Compliance_Margin: 1
 right_elbow:
   ID: 17
   Return_Delay_Time: 0
   Moving_Speed: 128
-  CW_Compliance_Slope: 20
-  CCW_Compliance_Slope: 20
+  CW_Compliance_Slope: 24
+  CCW_Compliance_Slope: 24
   CW_Compliance_Margin: 1
   CCW_Compliance_Margin: 1
 right_wrist:
   ID: 18
   Return_Delay_Time: 0
   Moving_Speed: 128
-  CW_Compliance_Slope: 20
-  CCW_Compliance_Slope: 20
+  CW_Compliance_Slope: 24
+  CCW_Compliance_Slope: 24
   CW_Compliance_Margin: 1
   CCW_Compliance_Margin: 1
