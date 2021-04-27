@@ -372,7 +372,7 @@ def pushup_position():
   position_control(3, 372)
   position_control(4, 293)
   position_control(8, 179)
-  position_control(9, 1059)
+  position_control(9, 1021)
   position_control(10, 962)
   position_control(13, 781)
   position_control(14, 536)
