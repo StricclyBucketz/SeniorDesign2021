@@ -470,7 +470,7 @@ if __name__ == "__main__":
   # F_M_R_MID()
   # F_E_L()
   # F_E_L_MID()
-  walk_ready()
+  #walk_ready()
 
   #walkLogic(5) # TODO make this user input
   # rightStep()
