@@ -161,7 +161,7 @@ def F_S_L():
   time.sleep(0.055)
   position_control(1, 365)
   position_control(5, 578)
-  position_control(7, 545)
+  position_control(7, 485)
   position_control(11, 592)
   time.sleep(0.055)
 
@@ -189,7 +189,7 @@ def F_S_L_MID():
   position_control(4, 308)
   position_control(5, 504)
 
-  #position_control(7, 539)
+  position_control(7, 545)
   position_control(8, 350)
   position_control(9, 886)
   position_control(10, 761)
