@@ -30,7 +30,7 @@ class PosSpeed(IntEnum):
 
 DELAY = 0.225
 TOLERANCE = 10 # %tolerance = TOLERANCE / 1023 (In this case ~0.3%)
-BASE_MOTOR_SPEED = 128 # Sets the speed for the servo moving the farthest in a state change.
+BASE_MOTOR_SPEED = 64 # Sets the speed for the servo moving the farthest in a state change.
 STATIC = np.array([512])    # Default for not {2,3,4,8,9,10}
 # TWO_POS = np.array([622,572])       # Default for servo 2, its extended state
 TWO_POS = np.array([647,577])       # Default for servo 2, its extended state
@@ -251,6 +251,26 @@ def walkLogic(stepsToTake):
   position_control(7, STATIC[0])
   position_control(11, STATIC[0])
   position_control(12, STATIC[0])
+
+def set_speeds():
+  speed_control(1, BASE_MOTOR_SPEED)
+  speed_control(2, BASE_MOTOR_SPEED)
+  speed_control(3, BASE_MOTOR_SPEED)
+  speed_control(4, BASE_MOTOR_SPEED)
+  speed_control(5, BASE_MOTOR_SPEED)
+  speed_control(6, BASE_MOTOR_SPEED)
+  speed_control(7, BASE_MOTOR_SPEED)
+  speed_control(8, BASE_MOTOR_SPEED)
+  speed_control(9, BASE_MOTOR_SPEED)
+  speed_control(10, BASE_MOTOR_SPEED)
+  speed_control(11, BASE_MOTOR_SPEED)
+  speed_control(12, BASE_MOTOR_SPEED)
+  speed_control(13, BASE_MOTOR_SPEED)
+  speed_control(14, BASE_MOTOR_SPEED)
+  speed_control(15, BASE_MOTOR_SPEED)
+  speed_control(16, BASE_MOTOR_SPEED)
+  speed_control(17, BASE_MOTOR_SPEED)
+  speed_control(18, BASE_MOTOR_SPEED)
 
 #State 31
 def walk_ready():
