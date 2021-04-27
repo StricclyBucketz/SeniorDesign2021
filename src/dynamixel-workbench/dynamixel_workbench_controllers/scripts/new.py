@@ -160,7 +160,7 @@ def F_S_L():
   position_control(5, 500)
   time.sleep(0.055)
   position_control(1, 360)
-  position_control(5, 565)
+  position_control(5, 573)
   position_control(7, 545)
   position_control(11, 575)
   time.sleep(0.055)
