@@ -456,6 +456,7 @@ def F_E_L_MID():
 
 if __name__ == "__main__":
 
+  set_speeds()
   walk_ready()
   F_S_L()
   F_S_L_MID()
