@@ -161,7 +161,7 @@ def F_S_L():
   position_control(5, 540)
   position_control(7, 550)
   position_control(11, 550)
-  time.sleep(0.005)
+  time.sleep(0.055)
   # #Substate 32.1
   # position_control(1, 513)
   # position_control(2, 681)
