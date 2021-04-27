@@ -387,7 +387,7 @@ def F_S_L_MID():
   position_control(4, 303)
   position_control(5, 508)
 
-  position_control(7, 515)
+  #position_control(7, 515)
   position_control(8, 369)
   position_control(9, 873)
   position_control(10, 767)
