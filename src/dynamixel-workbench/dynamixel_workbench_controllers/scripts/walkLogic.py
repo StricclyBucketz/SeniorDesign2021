@@ -44,7 +44,7 @@ FOUR_POS = np.array([367,277])      # Default for servo 4, its extended state
 EIGHT_POS = np.array([377,447])     # Default for servo 8, its extended state
 #EIGHT_POS = np.array([327,427])
 # NINE_POS = np.array([762,787])
-NINE_POS = np.array([754,770])
+NINE_POS = np.array([720,770])
 # TEN_POS = np.array([612,662])       # Default for servo 10, its extended state
 TEN_POS = np.array([647,737,670])       # Default for servo 10, its extended state
 #TEN_POS = np.array([679,769])
@@ -264,7 +264,7 @@ if __name__ == "__main__":
   position_control(13, 512)
   position_control(14, 592)
   position_control(15, 442)
-  time.sleep(1)
+  #time.sleep(1)
   position_control(7, STATIC[0])
   position_control(8, EIGHT_POS[0])
   position_control(9, NINE_POS[0])
