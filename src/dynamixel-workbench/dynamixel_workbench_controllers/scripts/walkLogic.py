@@ -33,21 +33,21 @@ TOLERANCE = 10 # %tolerance = TOLERANCE / 1023 (In this case ~0.3%)
 BASE_MOTOR_SPEED = 128 # Sets the speed for the servo moving the farthest in a state change.
 STATIC = np.array([512])    # Default for not {2,3,4,8,9,10}
 # TWO_POS = np.array([622,572])       # Default for servo 2, its extended state
-# TWO_POS = np.array([647,577])       # Default for servo 2, its extended state
-TWO_POS = np.array([667,597])
+TWO_POS = np.array([647,577])       # Default for servo 2, its extended state
+#TWO_POS = np.array([667,597])
 # THREE_POS = np.array([262,237])
 THREE_POS = np.array([200,175])
 # FOUR_POS = np.array([412,362])      # Default for servo 4, its extended state
-# FOUR_POS = np.array([367,277,350])      # Default for servo 4, its extended state
-FOUR_POS = np.array([345,255])
+FOUR_POS = np.array([367,277,350])      # Default for servo 4, its extended state
+#FOUR_POS = np.array([345,255])
 # EIGHT_POS = np.array([402,452])     # Default for servo 8, its extended state
-# EIGHT_POS = np.array([377,447])     # Default for servo 8, its extended state
-EIGHT_POS = np.array([327,427]) 
+EIGHT_POS = np.array([377,447])     # Default for servo 8, its extended state
+#EIGHT_POS = np.array([327,427])
 # NINE_POS = np.array([762,787])
 NINE_POS = np.array([776,801])
 # TEN_POS = np.array([612,662])       # Default for servo 10, its extended state
-# TEN_POS = np.array([647,737,670])       # Default for servo 10, its extended state
-TEN_POS = np.array([679,769])
+TEN_POS = np.array([647,737,670])       # Default for servo 10, its extended state
+#TEN_POS = np.array([679,769])
 # FEETHIPS = np.array([487,537])      # When not 512, both hips are one, both feet are other
 FEETHIPS = np.array([492,532])      # When not 512, both hips are one, both feet are other
 TWIST = np.array([462,562])
@@ -275,6 +275,6 @@ if __name__ == "__main__":
   position_control(17, 432)
   position_control(18, 582)
   time.sleep(1)
-  walkLogic(5) # TODO make this user input
+  #walkLogic(5) # TODO make this user input
   # rightStep()
   # leftStep()
