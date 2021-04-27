@@ -252,8 +252,7 @@ def walkLogic(stepsToTake):
   position_control(11, STATIC[0])
   position_control(12, STATIC[0])
 
-if __name__ == "__main__":
-
+def walk_ready():
   position_control(1, 508)
   position_control(2, 624)
   position_control(3, 285)
@@ -274,6 +273,94 @@ if __name__ == "__main__":
   position_control(17, 449)
   position_control(18, 553)
   time.sleep(1)
+
+def F_S_L():
+  position_control(1, 530)
+  position_control(2, 613)
+  position_control(3, 309)
+  position_control(4, 381)
+  position_control(5, 497)
+
+  position_control(7, 540)
+  position_control(8, 381)
+  position_control(9, 774)
+  position_control(10, 671)
+  position_control(11, 552)
+
+  position_control(13, 537)
+  position_control(14, 574)
+  position_control(15, 470)
+
+  position_control(16, 486)
+  position_control(17, 449)
+  position_control(18, 553)
+  time.sleep(DELAY)
+
+def F_S_L_MID():
+  position_control(1, 508)
+  position_control(2, 644)
+  position_control(3, 292)
+  position_control(4, 389)
+  position_control(5, 508)
+
+  position_control(7, 515)
+  position_control(8, 426)
+  position_control(9, 731)
+  position_control(10, 682)
+  position_control(11, 515)
+
+  position_control(13, 592)
+
+  position_control(16, 541)
+  time.sleep(DELAY)
+
+def F_S_R():
+  position_control(1, 483)
+  position_control(2, 642)
+  position_control(3, 249)
+  position_control(4, 352)
+  position_control(5, 471)
+
+  position_control(7, 493)
+  position_control(8, 410)
+  position_control(9, 714)
+  position_control(10, 642)
+  position_control(11, 526)
+
+  position_control(13, 537)
+
+  position_control(16, 486)
+  time.sleep(DELAY)
+
+def F_S_R_MID():
+  position_control(1, 508)
+  position_control(2, 597)
+  position_control(3, 292)
+  position_control(4, 341)
+  position_control(5, 508)
+
+  position_control(7, 515)
+  position_control(8, 379)
+  position_control(9, 731)
+  position_control(10, 635)
+  position_control(11, 515)
+
+  position_control(13, 481)
+
+  position_control(16, 430)
+  time.sleep(DELAY)
+
+
+
+if __name__ == "__main__":
+
+  walk_ready()
+  F_S_L()
+  F_S_L_MID()
+  F_S_R()
+  F_S_R_MID()
+  walk_ready()
+
   #walkLogic(5) # TODO make this user input
   # rightStep()
   # leftStep()
