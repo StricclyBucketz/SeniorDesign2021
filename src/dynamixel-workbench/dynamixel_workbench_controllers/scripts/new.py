@@ -261,11 +261,11 @@ def F_S_L():
   position_control(4, 266)
   position_control(5, 497)
 
-  position_control(7, 540)
+  position_control(7, 500)
   position_control(8, 324)
   position_control(9, 930)
   position_control(10, 771)
-  position_control(11, 552)
+  position_control(11, 500)
   # time.sleep(DELAY)
 
 #State 33
