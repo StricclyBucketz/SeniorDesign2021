@@ -299,24 +299,24 @@ def walk_ready():
 #State 32
 def F_S_L():
   position_control(1, 530)
-  position_control(2, 613)
-  position_control(3, 309)
-  position_control(4, 381)
+  position_control(2, 670)
+  position_control(3, 166)
+  position_control(4, 296)
   position_control(5, 497)
 
   position_control(7, 540)
-  position_control(8, 381)
+  position_control(8, 324)
   # position_control(9, 774)
   # position_control(10, 671)
-  position_control(9, 788)
-  position_control(10, 685)
+  position_control(9, 930)
+  position_control(10, 771)
   position_control(11, 552)
 
-  position_control(13, 537)
+  position_control(13, 512)
   position_control(14, 574)
   position_control(15, 470)
 
-  position_control(16, 486)
+  position_control(16, 512)
   position_control(17, 449)
   position_control(18, 553)
   time.sleep(DELAY)
@@ -324,15 +324,15 @@ def F_S_L():
 #State 33
 def F_S_L_MID():
   position_control(1, 508)
-  position_control(2, 644)
-  position_control(3, 292)
-  position_control(4, 389)
+  position_control(2, 701)
+  position_control(3, 150)
+  position_control(4, 303)
   position_control(5, 508)
 
   position_control(7, 515)
-  position_control(8, 426)
-  position_control(9, 731)
-  position_control(10, 682)
+  position_control(8, 369)
+  position_control(9, 873)
+  position_control(10, 767)
   position_control(11, 515)
 
   position_control(13, 592)
@@ -381,17 +381,17 @@ def F_S_R_MID():
 #State 38
 def F_M_R():
   position_control(1, 484)
-  position_control(2, 643)
+  position_control(2, 700)
   # position_control(3, 249)
   # position_control(4, 335)
-  position_control(3, 234)
-  position_control(4, 320)
+  position_control(3, 106)
+  position_control(4, 249)
   position_control(5, 473)
 
   position_control(7, 494)
-  position_control(8, 410)
-  position_control(9, 715)
-  position_control(10, 659)
+  position_control(8, 353)
+  position_control(9, 843)
+  position_control(10, 730)
   position_control(11, 527)
 
   position_control(13, 565)
@@ -402,15 +402,15 @@ def F_M_R():
 #State 39
 def F_M_R_MID():
   position_control(1, 508)
-  position_control(2, 597)
-  position_control(3, 292)
-  position_control(4, 333)
+  position_control(2, 654)
+  position_control(3, 164)
+  position_control(4, 262)
   position_control(5, 508)
 
   position_control(7, 515)
-  position_control(8, 379)
-  position_control(9, 731)
-  position_control(10, 643)
+  position_control(8, 322)
+  position_control(9, 859)
+  position_control(10, 714)
   position_control(11, 515)
 
   position_control(13, 487)
@@ -421,17 +421,17 @@ def F_M_R_MID():
 #State 40
 def F_E_L():
   position_control(1, 530)
-  position_control(2, 613)
-  position_control(3, 309)
-  position_control(4, 373)
+  position_control(2, 670)
+  position_control(3, 181)
+  position_control(4, 302)
   position_control(5, 497)
 
   position_control(7, 540)
-  position_control(8, 381)
+  position_control(8, 324)
   # position_control(9, 774)
   # position_control(10, 680)
-  position_control(9, 788)
-  position_control(10, 694)
+  position_control(9, 916)
+  position_control(10, 765)
   position_control(11, 552)
 
   position_control(13, 523)
@@ -442,15 +442,15 @@ def F_E_L():
 #State 41
 def F_E_L_MID():
   position_control(1, 508)
-  position_control(2, 624)
-  position_control(3, 285)
-  position_control(4, 369)
+  position_control(2, 681)
+  position_control(3, 157)
+  position_control(4, 298)
   position_control(5, 508)
 
   position_control(7, 515)
-  position_control(8, 399)
-  position_control(9, 738)
-  position_control(10, 654)
+  position_control(8, 342)
+  position_control(9, 866)
+  position_control(10, 725)
   position_control(11, 515)
 
   position_control(13, 537)
@@ -464,13 +464,13 @@ if __name__ == "__main__":
 
   set_speeds()
   walk_ready()
-  # F_S_L()
-  # F_S_L_MID()
-  # F_M_R()
-  # F_M_R_MID()
-  # F_E_L()
-  # F_E_L_MID()
-  # walk_ready()
+  F_S_L()
+  F_S_L_MID()
+  F_M_R()
+  F_M_R_MID()
+  F_E_L()
+  F_E_L_MID()
+  walk_ready()
 
   #walkLogic(5) # TODO make this user input
   # rightStep()
