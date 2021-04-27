@@ -195,7 +195,7 @@ def F_S_L_MID():
   position_control(10, 761)
   position_control(11, 555)
 
-  position_control(13, 535)
+  position_control(13, 484)
 
   position_control(16, 484)
   # time.sleep(DELAY)
