@@ -157,6 +157,8 @@ def walk_ready():
 #State 32
 def F_S_L():
 
+  position_control(5, 500)
+  time.sleep(0.055)
   position_control(1, 360)
   position_control(5, 565)
   position_control(7, 545)
