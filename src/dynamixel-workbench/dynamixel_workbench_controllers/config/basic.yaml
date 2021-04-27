@@ -88,7 +88,7 @@ left_tibia:
 left_knee:
   ID: 10
   CW_Angle_Limit: 412
-  CCW_Angle_Limit: 1100
+  CCW_Angle_Limit: 1022
   Return_Delay_Time: 0
   Moving_Speed: 128
   CW_Compliance_Slope: 32
