@@ -157,12 +157,17 @@ def walk_ready():
 #State 32
 def F_S_L():
 
+  position_control(1, 540)
+  position_control(5, 540)
+  position_control(7, 550)
+  position_control(11, 550)
+
   #Substate 32.1
   position_control(1, 513)
   position_control(2, 681)
   position_control(3, 158)
   position_control(4, 299)
-  position_control(5, 513)
+  #position_control(5, 513)
 
   position_control(7, 520)
   position_control(8, 343)
