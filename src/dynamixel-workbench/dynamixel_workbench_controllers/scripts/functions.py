@@ -113,7 +113,7 @@ def publisher():
 
 def motor_printer(motorSub):
     rate = rospy.Rate(10)
-    rospy.loginfo("Motor 7 Position: %s" % (motorSub.dynamixel_state[0].present_position))
+    rospy.loginfo("Motor 13 Position: %s" % (motorSub.dynamixel_state[5].present_position))
 
 def motor_subscriber():
     rospy.init_node('motorSub', anonymous=True)
