@@ -161,28 +161,28 @@ def F_S_L():
   position_control(5, 540)
   position_control(7, 550)
   position_control(11, 550)
-
-  #Substate 32.1
-  position_control(1, 513)
-  position_control(2, 681)
-  position_control(3, 158)
-  position_control(4, 299)
-  #position_control(5, 513)
-
-  position_control(7, 520)
-  position_control(8, 343)
-  position_control(9, 864)
-  position_control(10, 724)
-  position_control(11, 520)
-
-  position_control(13, 537)
-  position_control(14, 574)
-  position_control(15, 470)
-
-  position_control(16, 486)
-  position_control(17, 449)
-  position_control(18, 553)
-  # time.sleep(DELAY)
+  time.sleep(0.005)
+  # #Substate 32.1
+  # position_control(1, 513)
+  # position_control(2, 681)
+  # position_control(3, 158)
+  # position_control(4, 299)
+  # #position_control(5, 513)
+  #
+  # position_control(7, 520)
+  # position_control(8, 343)
+  # position_control(9, 864)
+  # position_control(10, 724)
+  # position_control(11, 520)
+  #
+  # position_control(13, 537)
+  # position_control(14, 574)
+  # position_control(15, 470)
+  #
+  # position_control(16, 486)
+  # position_control(17, 449)
+  # position_control(18, 553)
+  # # time.sleep(DELAY)
 
   # #Substate 32.2
   # position_control(1, 518)
