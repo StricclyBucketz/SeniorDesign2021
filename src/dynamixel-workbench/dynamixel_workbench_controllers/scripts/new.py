@@ -28,7 +28,7 @@ class PosSpeed(IntEnum):
   fullFeetHips = 4
   halfFeetHips = 5
 
-DELAY = 0.225
+DELAY = 0.100
 TOLERANCE = 10 # %tolerance = TOLERANCE / 1023 (In this case ~0.3%)
 BASE_MOTOR_SPEED = 128 # Sets the speed for the servo moving the farthest in a state change.
 STATIC = np.array([512])    # Default for not {2,3,4,8,9,10}
