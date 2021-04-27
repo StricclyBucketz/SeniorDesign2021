@@ -276,14 +276,14 @@ def set_speeds():
 #State 31
 def walk_ready():
   position_control(1, 508)
-  position_control(2, 710)
+  position_control(2, 681)
   position_control(3, 143)
   position_control(4, 284)
   position_control(5, 508)
   position_control(6, 512)
   #time.sleep(1)
   position_control(7, 515)
-  position_control(8, 313)
+  position_control(8, 342)
   position_control(9, 880)
   position_control(10, 739)
   position_control(11, 515)
