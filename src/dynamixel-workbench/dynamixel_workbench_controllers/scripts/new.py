@@ -157,10 +157,10 @@ def walk_ready():
 #State 32
 def F_S_L():
 
-  position_control(1, 540)
-  position_control(5, 540)
-  position_control(7, 550)
-  position_control(11, 550)
+  position_control(1, 580)
+  position_control(5, 580)
+  position_control(7, 590)
+  position_control(11, 590)
   time.sleep(0.055)
   # #Substate 32.1
   # position_control(1, 513)
