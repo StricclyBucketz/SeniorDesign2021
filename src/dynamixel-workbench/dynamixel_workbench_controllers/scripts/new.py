@@ -198,19 +198,19 @@ def F_S_L():
   # position_control(11, 525)
   # # time.sleep(DELAY)
 
-  #Substate 32.3
-  position_control(1, 522)
-  position_control(2, 677)
-  position_control(3, 166)
-  position_control(4, 303)
-  position_control(5, 522)
-
-  position_control(7, 529)
-  position_control(8, 348)
-  position_control(9, 855)
-  position_control(10, 719)
-  position_control(11, 529)
-  # time.sleep(DELAY)
+  # #Substate 32.3
+  # position_control(1, 522)
+  # position_control(2, 677)
+  # position_control(3, 166)
+  # position_control(4, 303)
+  # position_control(5, 522)
+  #
+  # position_control(7, 529)
+  # position_control(8, 348)
+  # position_control(9, 855)
+  # position_control(10, 719)
+  # position_control(11, 529)
+  # # time.sleep(DELAY)
 
   # #Substate 32.4
   # position_control(1, 525)
@@ -226,19 +226,19 @@ def F_S_L():
   # position_control(11, 533)
   # # time.sleep(DELAY)
 
-  #Substate 32.5
-  position_control(1, 528)
-  position_control(2, 672)
-  position_control(3, 176)
-  position_control(4, 308)
-  position_control(5, 520)
-
-  position_control(7, 536)
-  position_control(8, 344)
-  position_control(9, 862)
-  position_control(10, 722)
-  position_control(11, 539)
-  # time.sleep(DELAY)
+  # #Substate 32.5
+  # position_control(1, 528)
+  # position_control(2, 672)
+  # position_control(3, 176)
+  # position_control(4, 308)
+  # position_control(5, 520)
+  #
+  # position_control(7, 536)
+  # position_control(8, 344)
+  # position_control(9, 862)
+  # position_control(10, 722)
+  # position_control(11, 539)
+  # # time.sleep(DELAY)
 
   # #Substate 32.6
   # position_control(1, 529)
