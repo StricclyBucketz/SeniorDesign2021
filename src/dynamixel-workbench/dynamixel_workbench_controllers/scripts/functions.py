@@ -15,7 +15,7 @@ from geometry_msgs.msg import Quaternion, Vector3, Vector3Stamped
 from sensor_msgs.msg import Imu
 
 def test_control():
-    
+
     position_control(1, 512)
     position_control(2, 512)
     position_control(3, 512)
@@ -133,7 +133,7 @@ def IMU_subscriber():
 
 if __name__ == "__main__":
 
-    test_control()
+    #test_control()
 
     #to see examples of the functions running, just uncomment them
 
@@ -141,7 +141,7 @@ if __name__ == "__main__":
     #IMU_subscriber()
 
     #Gets current position from motors, access with posSub.dynamixel_state[index].parameter, these are all listed in AX.msg
-    #pos_subscriber()
+    motor_subscriber()
 
     #Moves motor, arguments are motor ID and goal position (0, 1023)
     #position_control(1, 512)
