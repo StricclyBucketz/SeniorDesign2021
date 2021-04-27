@@ -20,14 +20,6 @@ from sensor_msgs.msg import Imu
 
 from functions import speed_control, position_control
 
-class PosSpeed(IntEnum):
-  fullTwist = 0
-  fourTen = 1
-  twoEight = 2
-  threeNineHalfTwist = 3
-  fullFeetHips = 4
-  halfFeetHips = 5
-
 DELAY = 0.150
 TOLERANCE = 10 # %tolerance = TOLERANCE / 1023 (In this case ~0.3%)
 BASE_MOTOR_SPEED = 96 # Sets the speed for the servo moving the farthest in a state change.
@@ -116,141 +108,7 @@ def motor_callback(motorSub):
 #   return deltas.deltas
 
 
-def servoInfoIndexTest():
-  # servoInfos read in via ROS
 
-  rospy.init_node('motorSub', anonymous=True)
-  motorSub = rospy.Subscriber("dynamixel_workbench/dynamixel_state", msg.DynamixelStateList, callback)
-  for dynamixel_state in motorSub:
-    print("Servo {} is at position: {}".format(motorSub.dynamixel_state.id, motorSub.dynamixel_state.present_position))
-
-
-# Takes a numpy.array of size 12.  Spins until position read in from servos are all within tolerance
-def spinWhileMoving():
-  rospy.init_node('motorSub', anonymous=True)
-  posSub = rospy.Subscriber("dynamixel_workbench/dynamixel_state", msg.DynamixelStateList, motor_callback)
-
-def leftStep():
-  indices = np.array([1,5,7,11,8,10])
-  # speed_control(4, SPEED[PosSpeed.halfFeetHips])
-  # speed_control(10, SPEED[PosSpeed.fourTen])
-
-  targets = np.array([FEETHIPS[0],FEETHIPS[1],FEETHIPS[0],FEETHIPS[1],EIGHT_POS[1],TEN_POS[1]])
-  position_control(1, FEETHIPS[0])
-  position_control(5, FEETHIPS[1])
-  position_control(7, FEETHIPS[0])
-  position_control(11, FEETHIPS[1])
-  time.sleep(DELAY)
-  position_control(6, TWIST[0])
-  position_control(12, TWIST[0])
-  position_control(9, NINE_POS[1])
-  position_control(8, EIGHT_POS[1])
-  position_control(10, TEN_POS[1])
-  # position_control(4, FOUR_POS[2])
-  #spinWhileMoving()
-  time.sleep(DELAY)
-
-  targets = np.array([FEETHIPS[1],FEETHIPS[0],FEETHIPS[1],FEETHIPS[0],EIGHT_POS[1],TEN_POS[1]])
-  position_control(1, FEETHIPS[1])
-  position_control(5, FEETHIPS[0])
-  position_control(7, FEETHIPS[1])
-  position_control(11, FEETHIPS[0])
-  time.sleep(DELAY)
-  position_control(9, NINE_POS[0])
-  position_control(8, EIGHT_POS[0])
-  position_control(10, TEN_POS[0])
-  # position_control(4, FOUR_POS[0])
-  #spinWhileMoving()
-  time.sleep(DELAY)
-
-
-def rightStep():
-  indices = np.array([1,5,7,11,2,4])
-  # speed_control(4, SPEED[PosSpeed.fourTen])
-  # speed_control(10, SPEED[PosSpeed.halfFeetHips])
-
-  targets = np.array([FEETHIPS[1],FEETHIPS[0],FEETHIPS[1],FEETHIPS[0],TWO_POS[1],FOUR_POS[1]])
-  position_control(1, FEETHIPS[1])
-  position_control(5, FEETHIPS[0])
-  position_control(7, FEETHIPS[1])
-  position_control(11, FEETHIPS[0])
-  time.sleep(DELAY)
-  position_control(6, TWIST[1])
-  position_control(12, TWIST[1])
-  position_control(2, TWO_POS[1])
-  position_control(3, THREE_POS[1])
-  position_control(4, FOUR_POS[1])
-  # position_control(10, TEN_POS[2])
-  #spinWhileMoving()
-  time.sleep(DELAY)
-
-  targets = np.array([FEETHIPS[0],FEETHIPS[1],FEETHIPS[0],FEETHIPS[1],TWO_POS[0],FOUR_POS[0]])
-  position_control(1, FEETHIPS[0])
-  position_control(5, FEETHIPS[1])
-  position_control(7, FEETHIPS[0])
-  position_control(11, FEETHIPS[1])
-  time.sleep(DELAY)
-  position_control(2, TWO_POS[0])
-  position_control(3, THREE_POS[0])
-  position_control(4, FOUR_POS[0])
-  # position_control(10, TEN_POS[2])
-  #spinWhileMoving()
-  time.sleep(DELAY)
-
-def walkLogic(stepsToTake):
-  stepsTaken = 0
-  nextIsRight = True
-  # isFirstLast = True
-  while stepsTaken < stepsToTake:
-    if stepsTaken == 1:
-      # isFirstLast = False
-      speed_control(1, SPEED[PosSpeed.fullFeetHips])
-      speed_control(5, SPEED[PosSpeed.fullFeetHips])
-      speed_control(7, SPEED[PosSpeed.fullFeetHips])
-      speed_control(11, SPEED[PosSpeed.fullFeetHips])
-      speed_control(6, SPEED[PosSpeed.fullTwist])
-      speed_control(12, SPEED[PosSpeed.fullTwist])
-      # speed_control(6, 64)
-      # speed_control(12, 64)
-    if stepsTaken == 0:
-      # isFirstLast = True
-      speed_control(1, SPEED[PosSpeed.halfFeetHips])
-      speed_control(5, SPEED[PosSpeed.halfFeetHips])
-      speed_control(7, SPEED[PosSpeed.halfFeetHips])
-      speed_control(11, SPEED[PosSpeed.halfFeetHips])
-      speed_control(6, SPEED[PosSpeed.threeNineHalfTwist])
-      speed_control(12, SPEED[PosSpeed.threeNineHalfTwist])
-      # speed_control(6, 32)
-      # speed_control(12, 32)
-      speed_control(2, SPEED[PosSpeed.twoEight])
-      speed_control(4, SPEED[PosSpeed.fourTen])
-      speed_control(8, SPEED[PosSpeed.twoEight])
-      speed_control(10, SPEED[PosSpeed.fourTen])
-      speed_control(3, SPEED[PosSpeed.threeNineHalfTwist])
-      speed_control(9, SPEED[PosSpeed.threeNineHalfTwist])
-    elif stepsTaken == stepsToTake - 1:
-      # isFirstLast = True
-      speed_control(1, SPEED[PosSpeed.halfFeetHips])
-      speed_control(5, SPEED[PosSpeed.halfFeetHips])
-      speed_control(7, SPEED[PosSpeed.halfFeetHips])
-      speed_control(11, SPEED[PosSpeed.halfFeetHips])
-      speed_control(6, SPEED[PosSpeed.threeNineHalfTwist])
-      speed_control(12, SPEED[PosSpeed.threeNineHalfTwist])
-      # speed_control(6, 32)
-      # speed_control(12, 32)
-    if nextIsRight:
-      rightStep()
-      nextIsRight = not nextIsRight
-    else:
-      leftStep()
-      nextIsRight = not nextIsRight
-    stepsTaken += 1
-  position_control(1, STATIC[0])
-  position_control(5, STATIC[0])
-  position_control(6, STATIC[0])
-  position_control(7, STATIC[0])
-  position_control(11, STATIC[0])
-  position_control(12, STATIC[0])
 
 def set_speeds():
   speed_control(1, BASE_MOTOR_SPEED)
@@ -298,6 +156,100 @@ def walk_ready():
 
 #State 32
 def F_S_L():
+
+  #Substate 32.1
+  position_control(1, 513)
+  position_control(2, 681)
+  position_control(3, 158)
+  position_control(4, 299)
+  position_control(5, 513)
+
+  position_control(7, 520)
+  position_control(8, 343)
+  position_control(9, 864)
+  position_control(10, 724)
+  position_control(11, 520)
+
+  position_control(13, 537)
+  position_control(14, 574)
+  position_control(15, 470)
+
+  position_control(16, 486)
+  position_control(17, 449)
+  position_control(18, 553)
+  time.sleep(0.093)
+
+  #Substate 32.2
+  position_control(1, 518)
+  position_control(2, 679)
+  position_control(3, 162)
+  position_control(4, 301)
+  position_control(5, 518)
+
+  position_control(7, 525)
+  position_control(8, 345)
+  position_control(9, 860)
+  position_control(10, 721)
+  position_control(11, 525)
+  time.sleep(0.063)
+
+  #Substate 32.3
+  position_control(1, 522)
+  position_control(2, 677)
+  position_control(3, 166)
+  position_control(4, 303)
+  position_control(5, 522)
+
+  position_control(7, 529)
+  position_control(8, 348)
+  position_control(9, 855)
+  position_control(10, 719)
+  position_control(11, 529)
+  time.sleep(0.078)
+
+  #Substate 32.4
+  position_control(1, 525)
+  position_control(2, 675)
+  position_control(3, 171)
+  position_control(4, 305)
+  position_control(5, 525)
+
+  position_control(7, 533)
+  position_control(8, 350)
+  position_control(9, 849)
+  position_control(10, 716)
+  position_control(11, 533)
+  time.sleep(0.078)
+
+  #Substate 32.5
+  position_control(1, 528)
+  position_control(2, 672)
+  position_control(3, 176)
+  position_control(4, 308)
+  position_control(5, 520)
+
+  position_control(7, 536)
+  position_control(8, 344)
+  position_control(9, 862)
+  position_control(10, 722)
+  position_control(11, 539)
+  time.sleep(0.078)
+
+  #Substate 32.6
+  position_control(1, 529)
+  position_control(2, 671)
+  position_control(3, 179)
+  position_control(4, 307)
+  position_control(5, 504)
+
+  position_control(7, 539)
+  position_control(8, 330)
+  position_control(9, 889)
+  position_control(10, 736)
+  position_control(11, 548)
+  time.sleep(0.078)
+
+  #Substate 32.7
   position_control(1, 530)
   position_control(2, 670)
   position_control(3, 166)
@@ -306,23 +258,124 @@ def F_S_L():
 
   position_control(7, 540)
   position_control(8, 324)
-  # position_control(9, 774)
-  # position_control(10, 671)
   position_control(9, 930)
   position_control(10, 771)
   position_control(11, 552)
-
-  position_control(13, 512)
-  position_control(14, 574)
-  position_control(15, 470)
-
-  position_control(16, 512)
-  position_control(17, 449)
-  position_control(18, 553)
-  time.sleep(DELAY)
+  time.sleep(0.096)
 
 #State 33
 def F_S_L_MID():
+
+  #Substate 33.1
+  position_control(1, 529)
+  position_control(2, 676)
+  position_control(3, 180)
+  position_control(4, 308)
+  position_control(5, 504)
+
+  position_control(7, 539)
+  position_control(8, 350)
+  position_control(9, 886)
+  position_control(10, 761)
+  position_control(11, 548)
+
+  position_control(13, 535)
+
+  position_control(16, 484)
+  time.sleep(0.078)
+
+  #Substate 33.2
+  position_control(1, 528)
+  position_control(2, 682)
+  position_control(3, 177)
+  position_control(4, 312)
+  position_control(5, 520)
+
+  position_control(7, 536)
+  position_control(8, 379)
+  position_control(9, 851)
+  position_control(10, 755)
+  position_control(11, 538)
+
+  position_control(13, 548)
+
+  position_control(16, 497)
+  time.sleep(0.078)
+
+  #Substate 33.3
+  position_control(1, 525)
+  position_control(2, 686)
+  position_control(3, 173)
+  position_control(4, 310)
+  position_control(5, 525)
+
+  position_control(7, 533)
+  position_control(8, 393)
+  position_control(9, 833)
+  position_control(10, 751)
+  position_control(11, 533)
+
+  position_control(13, 560)
+
+  position_control(16, 509)
+  time.sleep(0.078)
+
+  #Substate 33.4
+  position_control(1, 522)
+  position_control(2, 688)
+  position_control(3, 167)
+  position_control(4, 308)
+  position_control(5, 522)
+
+  position_control(7, 529)
+  position_control(8, 390)
+  position_control(9, 839)
+  position_control(10, 755)
+  position_control(11, 529)
+
+  position_control(13, 571)
+
+  position_control(16, 520)
+  time.sleep(0.078)
+
+  #Substate 33.5
+  position_control(1, 518)
+  position_control(2, 692)
+  position_control(3, 164)
+  position_control(4, 308)
+  position_control(5, 518)
+
+  position_control(7, 525)
+  position_control(8, 384)
+  position_control(9, 847)
+  position_control(10, 756)
+  position_control(11, 525)
+
+  position_control(13, 580)
+
+  position_control(16, 529)
+  time.sleep(0.078)
+
+  #Substate 33.6
+  position_control(1, 513)
+  position_control(2, 697)
+  position_control(3, 162)
+  position_control(4, 312)
+  position_control(5, 513)
+
+  position_control(7, 520)
+  position_control(8, 377)
+  position_control(9, 854)
+  position_control(10, 756)
+  position_control(11, 520)
+
+  position_control(13, 587)
+
+  position_control(16, 536)
+  time.sleep(0.078)
+
+
+  #Substate 33.7
   position_control(1, 508)
   position_control(2, 701)
   position_control(3, 150)
@@ -338,7 +391,7 @@ def F_S_L_MID():
   position_control(13, 592)
 
   position_control(16, 541)
-  time.sleep(DELAY)
+  time.sleep(0.096)
 
 #State 34
 def F_S_R():
@@ -465,13 +518,9 @@ if __name__ == "__main__":
   set_speeds()
   walk_ready()
   F_S_L()
-  # F_S_L_MID()
+  F_S_L_MID()
   # F_M_R()
   # F_M_R_MID()
   # F_E_L()
   # F_E_L_MID()
   #walk_ready()
-
-  #walkLogic(5) # TODO make this user input
-  # rightStep()
-  # leftStep()
