@@ -126,8 +126,8 @@ def spinWhileMoving():
 
 def leftStep():
   indices = np.array([1,5,7,11,8,10])
-  speed_control(4, SPEED[PosSpeed.halfFeetHips])
-  speed_control(10, SPEED[PosSpeed.fourTen])
+  # speed_control(4, SPEED[PosSpeed.halfFeetHips])
+  # speed_control(10, SPEED[PosSpeed.fourTen])
 
   targets = np.array([FEETHIPS[0],FEETHIPS[1],FEETHIPS[0],FEETHIPS[1],EIGHT_POS[1],TEN_POS[1]])
   position_control(1, FEETHIPS[0])
@@ -140,7 +140,7 @@ def leftStep():
   position_control(9, NINE_POS[1])
   position_control(8, EIGHT_POS[1])
   position_control(10, TEN_POS[1])
-  position_control(4, FOUR_POS[2])
+  # position_control(4, FOUR_POS[2])
   #spinWhileMoving()
   time.sleep(DELAY)
 
@@ -153,15 +153,15 @@ def leftStep():
   position_control(9, NINE_POS[0])
   position_control(8, EIGHT_POS[0])
   position_control(10, TEN_POS[0])
-  position_control(4, FOUR_POS[0])
+  # position_control(4, FOUR_POS[0])
   #spinWhileMoving()
   time.sleep(DELAY)
 
 
 def rightStep():
   indices = np.array([1,5,7,11,2,4])
-  speed_control(4, SPEED[PosSpeed.fourTen])
-  speed_control(10, SPEED[PosSpeed.halfFeetHips])
+  # speed_control(4, SPEED[PosSpeed.fourTen])
+  # speed_control(10, SPEED[PosSpeed.halfFeetHips])
 
   targets = np.array([FEETHIPS[1],FEETHIPS[0],FEETHIPS[1],FEETHIPS[0],TWO_POS[1],FOUR_POS[1]])
   position_control(1, FEETHIPS[1])
@@ -174,7 +174,7 @@ def rightStep():
   position_control(2, TWO_POS[1])
   position_control(3, THREE_POS[1])
   position_control(4, FOUR_POS[1])
-  position_control(10, TEN_POS[2])
+  # position_control(10, TEN_POS[2])
   #spinWhileMoving()
   time.sleep(DELAY)
 
@@ -187,7 +187,7 @@ def rightStep():
   position_control(2, TWO_POS[0])
   position_control(3, THREE_POS[0])
   position_control(4, FOUR_POS[0])
-  position_control(10, TEN_POS[2])
+  # position_control(10, TEN_POS[2])
   #spinWhileMoving()
   time.sleep(DELAY)
 
