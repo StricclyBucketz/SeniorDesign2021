@@ -301,9 +301,9 @@ def F_E_L_MID():
   time.sleep(DELAY)
 
 def pushup_position():
-    
-  position_control(2, 667)
-  position_control(8, 356)
+
+  position_control(2, 700)
+  position_control(8, 323)
   time.sleep(0.5)
 
   position_control(1, 512)
