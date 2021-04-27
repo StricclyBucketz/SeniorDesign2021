@@ -46,7 +46,7 @@ EIGHT_POS = np.array([377,447])     # Default for servo 8, its extended state
 # NINE_POS = np.array([762,787])
 NINE_POS = np.array([770,820])
 # TEN_POS = np.array([612,662])       # Default for servo 10, its extended state
-TEN_POS = np.array([647,737,670])       # Default for servo 10, its extended state
+TEN_POS = np.array([647,737])       # Default for servo 10, its extended state
 #TEN_POS = np.array([679,769])
 # FEETHIPS = np.array([487,537])      # When not 512, both hips are one, both feet are other
 FEETHIPS = np.array([492,532])      # When not 512, both hips are one, both feet are other
@@ -262,7 +262,7 @@ if __name__ == "__main__":
   position_control(5, STATIC[0])
   position_control(6, STATIC[0])
   position_control(13, 512)
-  position_control(14, 592)
+  position_control(14, 582)
   position_control(15, 442)
   #time.sleep(1)
   position_control(7, STATIC[0])

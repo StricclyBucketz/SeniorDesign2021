@@ -306,8 +306,10 @@ def F_S_L():
 
   position_control(7, 540)
   position_control(8, 381)
-  position_control(9, 774)
-  position_control(10, 671)
+  # position_control(9, 774)
+  # position_control(10, 671)
+  position_control(9, 788)
+  position_control(10, 685)
   position_control(11, 552)
 
   position_control(13, 537)
@@ -380,8 +382,10 @@ def F_S_R_MID():
 def F_M_R():
   position_control(1, 484)
   position_control(2, 643)
-  position_control(3, 249)
-  position_control(4, 335)
+  # position_control(3, 249)
+  # position_control(4, 335)
+  position_control(3, 234)
+  position_control(4, 320)
   position_control(5, 473)
 
   position_control(7, 494)
@@ -424,8 +428,10 @@ def F_E_L():
 
   position_control(7, 540)
   position_control(8, 381)
-  position_control(9, 774)
-  position_control(10, 680)
+  # position_control(9, 774)
+  # position_control(10, 680)
+  position_control(9, 788)
+  position_control(10, 694)
   position_control(11, 552)
 
   position_control(13, 523)
