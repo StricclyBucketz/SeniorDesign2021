@@ -111,7 +111,7 @@ def motor_callback(motorSub):
 
 
 def set_speeds():
-  speed_control(1, BASE_MOTOR_SPEED)
+  speed_control(1, BASE_MOTOR_SPEED*2)
   speed_control(2, BASE_MOTOR_SPEED)
   speed_control(3, BASE_MOTOR_SPEED)
   speed_control(4, BASE_MOTOR_SPEED)
@@ -157,7 +157,7 @@ def walk_ready():
 #State 32
 def F_S_L():
 
-  position_control(1, 500)
+  position_control(1, 580)
   position_control(5, 580)
   position_control(7, 590)
   position_control(11, 590)
