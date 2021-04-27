@@ -416,10 +416,10 @@ def pushup():
   time.sleep(0.5)
 
 
-  position_control(13, 732)
+  #position_control(13, 732)
   position_control(14, 536)
   position_control(15, 504)
-  position_control(16, 291)
+  #position_control(16, 291)
   position_control(17, 487)
   position_control(18, 519)
   time.sleep(0.5)
