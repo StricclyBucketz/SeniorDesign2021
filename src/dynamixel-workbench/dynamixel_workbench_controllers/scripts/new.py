@@ -157,7 +157,7 @@ def walk_ready():
 #State 32
 def F_S_L():
 
-  position_control(1, 420)
+  position_control(1, 360)
   position_control(5, 580)
   position_control(7, 590)
   position_control(11, 590)
@@ -255,7 +255,7 @@ def F_S_L():
   # # time.sleep(DELAY)
 
   #Substate 32.7
-  position_control(1, 530)
+  position_control(1, 508)
   position_control(2, 670)
   position_control(3, 166)
   position_control(4, 264)
