@@ -252,6 +252,7 @@ def walkLogic(stepsToTake):
   position_control(11, STATIC[0])
   position_control(12, STATIC[0])
 
+#State 31
 def walk_ready():
   position_control(1, 508)
   position_control(2, 624)
@@ -274,6 +275,7 @@ def walk_ready():
   position_control(18, 553)
   time.sleep(1)
 
+#State 32
 def F_S_L():
   position_control(1, 530)
   position_control(2, 613)
@@ -296,6 +298,7 @@ def F_S_L():
   position_control(18, 553)
   time.sleep(DELAY)
 
+#State 33
 def F_S_L_MID():
   position_control(1, 508)
   position_control(2, 644)
@@ -314,6 +317,7 @@ def F_S_L_MID():
   position_control(16, 541)
   time.sleep(DELAY)
 
+#State 34
 def F_S_R():
   position_control(1, 483)
   position_control(2, 642)
@@ -332,6 +336,7 @@ def F_S_R():
   position_control(16, 486)
   time.sleep(DELAY)
 
+#State 35
 def F_S_R_MID():
   position_control(1, 508)
   position_control(2, 597)
@@ -350,6 +355,82 @@ def F_S_R_MID():
   position_control(16, 430)
   time.sleep(DELAY)
 
+#State 38
+def F_M_R():
+  position_control(1, 484)
+  position_control(2, 643)
+  position_control(3, 249)
+  position_control(4, 335)
+  position_control(5, 473)
+
+  position_control(7, 494)
+  position_control(8, 410)
+  position_control(9, 715)
+  position_control(10, 659)
+  position_control(11, 527)
+
+  position_control(13, 565)
+
+  position_control(16, 514)
+  time.sleep(DELAY)
+
+#State 39
+def F_M_R_MID():
+  position_control(1, 508)
+  position_control(2, 597)
+  position_control(3, 292)
+  position_control(4, 333)
+  position_control(5, 508)
+
+  position_control(7, 515)
+  position_control(8, 379)
+  position_control(9, 731)
+  position_control(10, 643)
+  position_control(11, 515)
+
+  position_control(13, 487)
+
+  position_control(16, 436)
+  time.sleep(DELAY)
+
+#State 40
+def F_E_L():
+  position_control(1, 530)
+  position_control(2, 613)
+  position_control(3, 309)
+  position_control(4, 373)
+  position_control(5, 497)
+
+  position_control(7, 540)
+  position_control(8, 381)
+  position_control(9, 774)
+  position_control(10, 680)
+  position_control(11, 552)
+
+  position_control(13, 523)
+
+  position_control(16, 472)
+  time.sleep(DELAY)
+
+#State 41
+def F_E_L_MID():
+  position_control(1, 508)
+  position_control(2, 624)
+  position_control(3, 285)
+  position_control(4, 369)
+  position_control(5, 508)
+
+  position_control(7, 515)
+  position_control(8, 399)
+  position_control(9, 738)
+  position_control(10, 654)
+  position_control(11, 515)
+
+  position_control(13, 537)
+
+  position_control(16, 486)
+  time.sleep(DELAY)
+
 
 
 if __name__ == "__main__":
@@ -357,8 +438,10 @@ if __name__ == "__main__":
   walk_ready()
   F_S_L()
   F_S_L_MID()
-  F_S_R()
-  F_S_R_MID()
+  F_M_R()
+  F_M_R_MID()
+  F_E_L()
+  F_E_L_MID()
   walk_ready()
 
   #walkLogic(5) # TODO make this user input
