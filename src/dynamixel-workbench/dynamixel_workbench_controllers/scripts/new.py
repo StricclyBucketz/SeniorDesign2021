@@ -271,6 +271,7 @@ def set_speeds():
   speed_control(16, BASE_MOTOR_SPEED)
   speed_control(17, BASE_MOTOR_SPEED)
   speed_control(18, BASE_MOTOR_SPEED)
+  time.sleep(3)
 
 #State 31
 def walk_ready():
