@@ -7,66 +7,155 @@ right_foot:
   CW_Angle_Limit: 300
   CCW_Angle_Limit: 765
   Moving_Speed: 128
+  CW_Compliance_Slope: 2
+  CCW_Compliance_Slope: 2
+  CW_Compliance_Margin: 2
+  CCW_Compliance_Margin: 2
 right_ankle:
   ID: 2
   Return_Delay_Time: 0
   CW_Angle_Limit: 412
   CCW_Angle_Limit: 737
+  Moving_Speed: 128
+  CW_Compliance_Slope: 2
+  CCW_Compliance_Slope: 2
+  CW_Compliance_Margin: 2
+  CCW_Compliance_Margin: 2
 right_tibia:
   ID: 3
   CW_Angle_Limit: 100
   CCW_Angle_Limit: 612
   Return_Delay_Time: 0
+  Moving_Speed: 128
+  CW_Compliance_Slope: 2
+  CCW_Compliance_Slope: 2
+  CW_Compliance_Margin: 2
+  CCW_Compliance_Margin: 2
 right_knee:
   ID: 4
   CW_Angle_Limit: 150
   CCW_Angle_Limit: 612
   Return_Delay_Time: 0
+  Moving_Speed: 128
+  CW_Compliance_Slope: 2
+  CCW_Compliance_Slope: 2
+  CW_Compliance_Margin: 2
+  CCW_Compliance_Margin: 2
 right_hip:
   ID: 5
   Return_Delay_Time: 0
+  Moving_Speed: 128
+  CW_Compliance_Slope: 2
+  CCW_Compliance_Slope: 2
+  CW_Compliance_Margin: 2
+  CCW_Compliance_Margin: 2
 right_waist:
   ID: 6
   Return_Delay_Time: 0
+  Moving_Speed: 128
+  CW_Compliance_Slope: 2
+  CCW_Compliance_Slope: 2
+  CW_Compliance_Margin: 2
+  CCW_Compliance_Margin: 2
 left_foot:
   ID: 7
   Return_Delay_Time: 0
+  Moving_Speed: 128
+  CW_Compliance_Slope: 2
+  CCW_Compliance_Slope: 2
+  CW_Compliance_Margin: 2
+  CCW_Compliance_Margin: 2
 left_ankle:
   ID: 8
   CW_Angle_Limit: 287
   CCW_Angle_Limit: 612
   Return_Delay_Time: 0
+  Moving_Speed: 128
+  CW_Compliance_Slope: 2
+  CCW_Compliance_Slope: 2
+  CW_Compliance_Margin: 2
+  CCW_Compliance_Margin: 2
 left_tibia:
   ID: 9
   CW_Angle_Limit: 412
   CCW_Angle_Limit: 950
   Return_Delay_Time: 0
+  Moving_Speed: 128
+  CW_Compliance_Slope: 2
+  CCW_Compliance_Slope: 2
+  CW_Compliance_Margin: 2
+  CCW_Compliance_Margin: 2
 left_knee:
   ID: 10
   CW_Angle_Limit: 412
   CCW_Angle_Limit: 870
   Return_Delay_Time: 0
+  Moving_Speed: 128
+  CW_Compliance_Slope: 2
+  CCW_Compliance_Slope: 2
+  CW_Compliance_Margin: 2
+  CCW_Compliance_Margin: 2
 left_hip:
   ID: 11
   Return_Delay_Time: 0
+  Moving_Speed: 128
+  CW_Compliance_Slope: 2
+  CCW_Compliance_Slope: 2
+  CW_Compliance_Margin: 2
+  CCW_Compliance_Margin: 2
 left_waist:
   ID: 12
   Return_Delay_Time: 0
+  Moving_Speed: 128
+  CW_Compliance_Slope: 2
+  CCW_Compliance_Slope: 2
+  CW_Compliance_Margin: 2
+  CCW_Compliance_Margin: 2
 left_shoulder:
   ID: 13
   Return_Delay_Time: 0
+  Moving_Speed: 128
+  CW_Compliance_Slope: 2
+  CCW_Compliance_Slope: 2
+  CW_Compliance_Margin: 2
+  CCW_Compliance_Margin: 2
 left_elbow:
   ID: 14
   Return_Delay_Time: 0
+  Moving_Speed: 128
+  CW_Compliance_Slope: 2
+  CCW_Compliance_Slope: 2
+  CW_Compliance_Margin: 2
+  CCW_Compliance_Margin: 2
 left_wrist:
   ID: 15
   Return_Delay_Time: 0
+  Moving_Speed: 128
+  CW_Compliance_Slope: 2
+  CCW_Compliance_Slope: 2
+  CW_Compliance_Margin: 2
+  CCW_Compliance_Margin: 2
 right_shoulder:
   ID: 16
   Return_Delay_Time: 0
+  Moving_Speed: 128
+  CW_Compliance_Slope: 2
+  CCW_Compliance_Slope: 2
+  CW_Compliance_Margin: 2
+  CCW_Compliance_Margin: 2
 right_elbow:
   ID: 17
   Return_Delay_Time: 0
+  Moving_Speed: 128
+  CW_Compliance_Slope: 2
+  CCW_Compliance_Slope: 2
+  CW_Compliance_Margin: 2
+  CCW_Compliance_Margin: 2
 right_wrist:
   ID: 18
   Return_Delay_Time: 0
+  Moving_Speed: 128
+  CW_Compliance_Slope: 2
+  CCW_Compliance_Slope: 2
+  CW_Compliance_Margin: 2
+  CCW_Compliance_Margin: 2
