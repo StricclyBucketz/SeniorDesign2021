@@ -429,7 +429,7 @@ if __name__ == "__main__":
 
   set_speeds()
   walk_ready()
-  pushup_position()
+  # pushup_position()
   # pushup()
   # pushup()
   # pushup()
