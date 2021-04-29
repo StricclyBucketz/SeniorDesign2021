@@ -437,8 +437,8 @@ if __name__ == "__main__":
 
   F_S_L()
   F_S_L_MID()
-  # F_M_R()
-  # F_M_R_MID()
-  # F_E_L()
-  # F_E_L_MID()
+   F_M_R()
+   F_M_R_MID()
+   F_E_L()
+   F_E_L_MID()
   #walk_ready()
