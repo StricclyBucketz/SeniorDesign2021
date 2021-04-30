@@ -57,6 +57,7 @@ Guide to current implementation:
   Ctrl-C when you would like the recording to end, the -a flag records all available topics, if you would like to record specific   topics you will need to use the "rosbag record <topic-names>" convention
 8. To extract numerical data for a specific ROS topic from a .bag file, you can use "rostopic echo -b fileName.bag /topic >   fileName.txt"
 9. To convert the .txt file to a .csv file for easier import into numerical analysis software, you can use the script provided in our base directory with "./txt2csv.bash fileName.txt fileName.csv"
+10. If you would like to make your own Python file an executable within ROS: chmod u+x executableName fileName.py
 
 
   
