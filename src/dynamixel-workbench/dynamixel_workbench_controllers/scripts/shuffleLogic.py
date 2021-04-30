@@ -30,7 +30,7 @@ class PosSpeed(IntEnum):
 
 DELAY = 0.225
 TOLERANCE = 10 # %tolerance = TOLERANCE / 1023 (In this case ~0.3%)
-BASE_MOTOR_SPEED = 128 # Sets the speed for the servo moving the farthest in a state change.
+BASE_MOTOR_SPEED = 64 # Sets the speed for the servo moving the farthest in a state change.
 STANDING = np.array([508,681,157,298,508,512,515,342,866,725,515,512,537,574,470,486,449,553])
 LAnkleHip = np.array([508, 483, 533]) # Left ankle (1) and hip (5) default, rotated left, rotated right
 RAnkleHip = np.array([515, 490, 540]) # Right ankle (7) and hip (11) default, rotated left, rotated right
