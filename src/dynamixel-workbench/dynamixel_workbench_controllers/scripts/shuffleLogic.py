@@ -34,10 +34,10 @@ BASE_MOTOR_SPEED = 48 # Sets the speed for the servo moving the farthest in a st
 STANDING = np.array([508,681,157,298,508,512,515,342,866,725,515,512,537,574,470,486,449,553])
 LAnkleHip = np.array([508, 483, 533]) # Left ankle (1) and hip (5) default, rotated left, rotated right
 RAnkleHip = np.array([515, 490, 540]) # Right ankle (7) and hip (11) default, rotated left, rotated right
-TwoPos = np.array([681, 656-100]) # Right ankle pitch default and rotated up
-FourPos = np.array([298, 273-100]) # Right hip pitch default and rotated up
-EightPos = np.array([342, 367+100]) # Left ankle pitch default and rotated up
-TenPos = np.array([725, 750+100]) # Left hip pitch default and rotated up
+TwoPos = np.array([681, 656-25]) # Right ankle pitch default and rotated up
+FourPos = np.array([298, 273-25]) # Right hip pitch default and rotated up
+EightPos = np.array([342, 367+25]) # Left ankle pitch default and rotated up
+TenPos = np.array([725, 750+25]) # Left hip pitch default and rotated up
 
 targets = np.zeros(6)
 
@@ -263,6 +263,6 @@ if __name__ == "__main__":
   for i in range(18):
     speed_control(i + 1, BASE_MOTOR_SPEED)
   time.sleep(DELAY)
-  walkLogic(5) # TODO make this user input
+  walkLogic(15) # TODO make this user input
   # rightStep()
   # leftStep()
